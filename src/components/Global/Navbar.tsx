@@ -16,16 +16,9 @@ const Navbar = () => {
       </a>
       <ul className="menu menu-horizontal gap-3 justify-center items-center px-1">
         <li>
-          <details>
-            <summary className="font-bold md:text-lg">Categories</summary>
-            <ul className="p-4 bg-black rounded-lg">
-              {Categories.map((category) => (
-                <li key={category}>
-                  <a href={`#${category}`}>{category}</a>
-                </li>
-              ))}
-            </ul>
-          </details>
+          <a href="/creator" className="font-bold md:text-lg">
+            Affiliates
+          </a>
         </li>
         <li>
           <a href="/submit" className="btn btn-primary">

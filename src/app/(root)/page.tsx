@@ -1,10 +1,16 @@
 "use client";
 
+import { BackgroundBeams } from "@/components/Global/BackgroundBeams";
 import Card from "@/components/Global/Card";
+import AffiliatesCards from "@/components/Home/AffiliatesCards";
+import Slider from "@/components/Home/Slider";
+import { FaFilter } from "react-icons/fa";
 
 export default function Home() {
   return (
     <main>
+      <BackgroundBeams className="z-[-1]" />
+
       <div className="text-center h-[50vh] flex items-center flex-col justify-center gap-4 md:gap-5">
         <h1 className="heading text">
           Discover Top Affiliates,
@@ -22,23 +28,56 @@ export default function Home() {
           </a>
         </div>
       </div>
-
-      <div
-        className="grid 
-        grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-        gap-5 md:gap-7 lg:gap-10 
-        p-5 md:p-7 lg:p-10
-      "
-      >
-        <Card
-          title="Affiliate.io"
-          summary="The Best Affiliate Program in the Market"
-          imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
-          upvotes={100}
-          price="100"
-          url="#"
+      <div className="mb-8">
+        <div className="text-center text-4xl font-bold mb-4">
+          Hot Affiliates
+        </div>
+        <Slider
+          Cards={[
+            <Card
+              title="Affiliate.io"
+              summary="The Best Affiliate Program in the Market"
+              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
+              upvotes={100}
+              price="100"
+              url="#"
+            />,
+            <Card
+              title="Affiliate.io"
+              summary="The Best Affiliate Program in the Market"
+              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
+              upvotes={100}
+              price="100"
+              url="#"
+            />,
+            <Card
+              title="Affiliate.io"
+              summary="The Best Affiliate Program in the Market"
+              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
+              upvotes={100}
+              price="100"
+              url="#"
+            />,
+            <Card
+              title="Affiliate.io"
+              summary="The Best Affiliate Program in the Market"
+              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
+              upvotes={100}
+              price="100"
+              url="#"
+            />,
+            <Card
+              title="Affiliate.io"
+              summary="The Best Affiliate Program in the Market"
+              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
+              upvotes={100}
+              price="100"
+              url="#"
+            />,
+          ]}
         />
       </div>
+      <AffiliatesCards />
     </main>
   );
 }

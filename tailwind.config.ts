@@ -1,4 +1,8 @@
 import type { Config } from "tailwindcss";
+const colours = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config = {
   content: [
@@ -7,6 +11,7 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  darkMode: "class",
   daisyui: {
     themes: [
       {
@@ -32,7 +37,18 @@ const config = {
       },
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), addVariablesForColors],
 } satisfies Config;
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
 
 export default config;
