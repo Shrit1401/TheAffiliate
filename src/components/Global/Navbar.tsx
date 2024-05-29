@@ -16,8 +16,8 @@ const Navbar = () => {
       </a>
       <ul className="menu menu-horizontal gap-3 justify-center items-center px-1">
         <li>
-          <a href="/creator" className="font-bold md:text-lg">
-            Affiliates
+          <a href="/affiliates" className="animate-pulse font-bold md:text-lg">
+            Affiliates Program
           </a>
         </li>
         <li>

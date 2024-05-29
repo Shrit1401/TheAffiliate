@@ -1,10 +1,10 @@
 "use client";
 
 import { BackgroundBeams } from "@/components/Global/BackgroundBeams";
+import CTA from "@/components/Global/CTA";
 import Card from "@/components/Global/Card";
 import AffiliatesCards from "@/components/Home/AffiliatesCards";
-import Slider from "@/components/Home/Slider";
-import { FaFilter } from "react-icons/fa";
+import SliderCard from "@/components/Home/SliderCard";
 
 export default function Home() {
   return (
@@ -20,10 +20,10 @@ export default function Home() {
           We Help Brands Meet You, and You to Meet Brands
         </h2>
         <div className="flex gap-5">
-          <a href="#" className="btn btn-primary">
+          <a href="/affiliates" className="btn btn-primary">
             Get Started
           </a>
-          <a href="#" className="btn btn-outline border-white">
+          <a href="/submit" className="btn btn-outline border-white">
             Submit Your Buisness
           </a>
         </div>
@@ -32,52 +32,11 @@ export default function Home() {
         <div className="text-center text-4xl font-bold mb-4">
           Hot Affiliates
         </div>
-        <Slider
-          Cards={[
-            <Card
-              title="Affiliate.io"
-              summary="The Best Affiliate Program in the Market"
-              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
-              upvotes={100}
-              price="100"
-              url="#"
-            />,
-            <Card
-              title="Affiliate.io"
-              summary="The Best Affiliate Program in the Market"
-              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
-              upvotes={100}
-              price="100"
-              url="#"
-            />,
-            <Card
-              title="Affiliate.io"
-              summary="The Best Affiliate Program in the Market"
-              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
-              upvotes={100}
-              price="100"
-              url="#"
-            />,
-            <Card
-              title="Affiliate.io"
-              summary="The Best Affiliate Program in the Market"
-              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
-              upvotes={100}
-              price="100"
-              url="#"
-            />,
-            <Card
-              title="Affiliate.io"
-              summary="The Best Affiliate Program in the Market"
-              imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
-              upvotes={100}
-              price="100"
-              url="#"
-            />,
-          ]}
-        />
+        {/* TODO: change homepage and new good looking stuff */}
+        <SliderCard />
       </div>
       <AffiliatesCards />
+      <CTA />
     </main>
   );
 }

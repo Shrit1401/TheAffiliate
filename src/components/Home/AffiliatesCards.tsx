@@ -1,19 +1,56 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { FaFilter } from "react-icons/fa";
 import Card from "../Global/Card";
+import { Categories, PostPrompts, PostSchemaPrompts } from "../../../types";
+import { getAllPosts } from "@/lib/posts.actions";
+import { handleError } from "@/lib/utils";
 
 const AffiliatesCards = () => {
+  const [selectedCategories, setSelectedCategories] = React.useState<string[]>(
+    []
+  );
+  const [search, setSearch] = React.useState("");
+
+  const [posts, setPosts] = React.useState<PostPrompts[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const posts = await getAllPosts().catch((error) => handleError(error));
+      if (selectedCategories.length > 0) {
+        const filteredPosts = posts!.filter((post) =>
+          selectedCategories.includes(post.category)
+        );
+        setPosts(filteredPosts);
+        return;
+      }
+      setPosts(posts as PostPrompts[]);
+    };
+
+    const searchPost = async () => {
+      const posts = await getAllPosts();
+      const filteredPosts = posts.filter((post) =>
+        post.title.toLowerCase().includes(search.toLowerCase())
+      );
+      if (selectedCategories.length > 0) {
+        const categoryFilteredPosts = filteredPosts.filter((post) =>
+          selectedCategories.includes(post.category)
+        );
+        setPosts(categoryFilteredPosts);
+        return;
+      }
+      setPosts(filteredPosts);
+    };
+
+    // fetchPosts();
+    search.length > 0 ? searchPost() : fetchPosts();
+  }, [selectedCategories, search, setPosts]);
+
   return (
-    <div
-      className="grid 
-  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-  gap-5 md:gap-7 lg:gap-10 
-  p-5 md:p-7 lg:p-10
-"
-    >
+    <div>
       <div className="">
-        <div className="flex w-full justify-between">
-          <label className="input input-bordered flex items-center gap-2">
+        <div className="flex w-full justify-between px-4">
+          <label className="input input-bordered flex items-center md:w-96 gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -26,7 +63,13 @@ const AffiliatesCards = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <input type="text" className="grow" placeholder="Search" />
+            <input
+              type="text"
+              className="grow"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search An Affiliate..."
+            />
           </label>
 
           <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
@@ -38,23 +81,55 @@ const AffiliatesCards = () => {
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
+              {Categories.map((category) => (
+                <li key={category}>
+                  <a href="#" className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      className="checkbox"
+                      id={category}
+                      checked={selectedCategories.includes(category)}
+                      onChange={() => {
+                        setSelectedCategories((prev) =>
+                          prev.includes(category)
+                            ? prev.filter((item) => item !== category)
+                            : [...prev, category]
+                        );
+                      }}
+                    />
+                    <label htmlFor={category}>{category}</label>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-        <Card
-          title="Affiliate.io"
-          summary="The Best Affiliate Program in the Market"
-          imageUrl="https://i.postimg.cc/pVYfYk97/image.png"
-          upvotes={100}
-          price="100"
-          url="#"
-        />
+        {posts.length === 0 ? (
+          <div className="flex justify-center items-center gap-4 h-40">
+            <span className="loading loading-spinner loading-md" />
+            <p className="text-2xl font-bold">Loading...</p>
+          </div>
+        ) : (
+          <div
+            className="grid 
+        grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+        gap-5 md:gap-7 lg:gap-10 
+        p-5 md:p-7 lg:p-10"
+          >
+            {posts.map((post: PostPrompts) => (
+              <Card
+                key={post.id}
+                id={post.id}
+                title={post.title}
+                summary={post.summary}
+                imageUrl={post.imageUrl!}
+                upvotes={post.upvotes! - post.downvotes! || 0}
+                price={post.price}
+                url={post.url}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

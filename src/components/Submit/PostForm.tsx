@@ -85,7 +85,7 @@ const PostForm = () => {
   };
 
   return (
-    <div className="flex justify-center md:flex-row flex-col">
+    <div className="flex justify-center md:flex-row">
       <div className="md:w-1/2 md:m-0 mx-10">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg">
           <div className="flex flex-col gap-5 text-white">
@@ -199,7 +199,7 @@ const PostForm = () => {
           }
           upvotes={69}
           price={formData.price || "-"}
-          url={formData.url || "URL"}
+          url="nr"
         />
       </div>
     </div>

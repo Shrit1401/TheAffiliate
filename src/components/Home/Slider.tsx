@@ -5,22 +5,26 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 
 type SliderProps = {
-  //   array of cards
   Cards: JSX.Element[];
 };
 export default ({ Cards }: SliderProps) => {
   return (
     <Swiper
-      spaceBetween={50}
-      slidesPerView={2}
+      spaceBetween={10}
+      slidesPerView={1}
       navigation
-      centeredSlides={true}
+      breakpoints={{
+        650: {
+          slidesPerView: 2,
+          spaceBetween: 50,
+        },
+      }}
       loop={true}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       modules={[Autoplay, Pagination, Navigation]}
       autoplay={{
-        delay: 2500,
+        delay: 50000,
         disableOnInteraction: false,
       }}
     >

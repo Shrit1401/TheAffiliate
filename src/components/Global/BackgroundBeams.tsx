@@ -60,7 +60,7 @@ export const BackgroundBeams = React.memo(
     return (
       <div
         className={cn(
-          "absolute  h-full w-full inset-0  [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
+          "absolute h-full w-full inset-0 [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
           className
         )}
       >
@@ -109,7 +109,7 @@ export const BackgroundBeams = React.memo(
                   duration: Math.random() * 10 + 10,
                   ease: "easeInOut",
                   repeat: Infinity,
-                  delay: Math.random() * 10,
+                  delay: Math.random() * 5,
                 }}
               >
                 <stop stopColor="#cccc" stopOpacity="0"></stop>

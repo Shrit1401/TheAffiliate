@@ -13,9 +13,10 @@ export type PostPrompts = {
   downvotes?: number;
 };
 
-export const Categories = ["Hot", "Money", "Recents", "Food", "Health", "Tech"];
+export const Categories = ["Money", "Recents", "Food", "Health", "Tech"];
 
 export type CardPrompts = {
+  id?: string;
   title: string;
   summary: string;
   imageUrl: string;
@@ -29,6 +30,7 @@ export const postSchema = z.object({
   title: z.string().min(5).max(20),
   summary: z.string().max(100),
   category: z.string(),
+  upvotes: z.number().optional().default(0),
   description: z.string().min(1),
   price: z.string().min(1),
   url: z.string().url().min(1),
