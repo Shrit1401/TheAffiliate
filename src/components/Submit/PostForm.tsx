@@ -155,7 +155,8 @@ const PostForm = () => {
               <FaDollarSign />
               <input
                 placeholder="Enter Price"
-                type="text"
+                type="number"
+                inputMode="numeric"
                 {...register("price", { required: "Price is required" })}
                 onChange={handleChange}
               />

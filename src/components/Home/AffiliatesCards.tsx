@@ -6,6 +6,7 @@ import { Categories, PostPrompts } from "../../../types";
 import { getAllPosts } from "@/lib/posts.actions";
 import { handleError } from "@/lib/utils";
 import ReactPaginate from "react-paginate";
+import toast from "react-hot-toast";
 
 function Items({ currentItems }: { currentItems: PostPrompts[] }) {
   return (
@@ -81,6 +82,16 @@ const AffiliatesCards = () => {
     search.length > 0 ? searchPost() : fetchPosts();
   }, [selectedCategories, search, setPosts]);
 
+  const filterSampleCategories = () => {
+    toast.error("We are working on this feature!", {
+      icon: "🚧",
+      style: {
+        background: "#333",
+        color: "#fff",
+      },
+    });
+  };
+
   return (
     <div>
       <div className="flex w-full justify-between px-4">
@@ -106,7 +117,11 @@ const AffiliatesCards = () => {
           />
         </label>
 
-        <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
+        <button onClick={filterSampleCategories} className="btn btn-primary">
+          <FaFilter className="invert" />
+          Filter Categories
+        </button>
+        {/* <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-primary m-1">
             <FaFilter className="invert" />
             Filter Categories
@@ -136,7 +151,7 @@ const AffiliatesCards = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
       {posts.length === 0 ? (
         <div className="flex justify-center items-center gap-4 h-40">
@@ -144,20 +159,17 @@ const AffiliatesCards = () => {
           <p className="text-2xl font-bold">Loading...</p>
         </div>
       ) : (
-        <div
-          className="grid 
-        grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-        gap-5 md:gap-7 lg:gap-10
-        p-5 md:p-7 lg:p-10 pagination"
-        >
-          <Items currentItems={currentItems} />
+        <div className="pagination">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7 lg:gap-10 p-5 md:p-7 lg:p-10">
+            <Items currentItems={currentItems} />
+          </div>
           <ReactPaginate
             breakLabel="..."
-            nextLabel="next >"
+            nextLabel=">"
             onPageChange={handlePageClick}
             pageRangeDisplayed={5}
             pageCount={pageCount}
-            previousLabel="< previous"
+            previousLabel="<"
             renderOnZeroPageCount={null}
           />
         </div>

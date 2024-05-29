@@ -25,7 +25,7 @@ const TopAffiliate = () => {
                 key={post.id}
                 className="flex flex-row justify-between gap-4"
               >
-                <div className="number bg-primary rounded-full w-12 h-12 flex items-center justify-center">
+                <div className="number bg-primary rounded-full min-w-12 min-h-12 flex items-center justify-center">
                   <span className="text-2xl font-bold text-black">
                     {index + 1 < 10 ? `0${index + 1}` : index + 1}
                   </span>

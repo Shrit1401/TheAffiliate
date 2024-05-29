@@ -43,11 +43,13 @@ export const insertPost = async (post: PostPrompts) => {
 
 export const getAllPosts = async () => {
   try {
-    const res = await db.query.posts.findMany();
+    const res = await db.query.posts.findMany({
+      orderBy: [desc(posts.createdAt)],
+    });
     return res as PostPrompts[];
   } catch (error) {
     handleError(error);
-    throw error; // Re-throw the error to propagate it
+    throw error;
   }
 };
 

@@ -53,7 +53,7 @@ const Card = (card: CardPrompts) => {
 
   return (
     <div className="bg-[#1A1A1A] flex flex-col gap-6 rounded-md pb-4 overflow-hidden">
-      <Image
+      <img
         src={card.imageUrl}
         className="rounded-t-md bg-cover h-[15rem] object-cover w-full"
         alt={card.title}

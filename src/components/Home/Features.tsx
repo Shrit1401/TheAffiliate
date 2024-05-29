@@ -6,8 +6,8 @@ import Testimonial from "./Testimonial";
 
 const Features = () => {
   return (
-    <div className="flex flex-col">
-      <div className="hero min-h-[50vh] my-16 bg-transparent">
+    <div className="flex flex-col ">
+      <div className="hero min-h-[50vh] my-16 bg-transparent p-auto md:px-48">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <AnimatesPaymentList />
           <div>
@@ -27,7 +27,7 @@ const Features = () => {
       </div>
       <TopAffiliate />
 
-      <div className="hero min-h-[50vh] my-16 bg-transparent">
+      <div className="hero min-h-[50vh] my-16 bg-transparent p-auto md:px-48">
         <div className="hero-content flex-col lg:flex-row">
           <Image
             src="/images/features/feature1.png"
@@ -50,7 +50,7 @@ const Features = () => {
         </div>
       </div>
 
-      <div className="hero min-h-[50vh] my-16 bg-transparent">
+      <div className="hero min-h-[50vh] my-16 bg-transparent p-auto md:px-48">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
             src="/images/features/feature2.png"
