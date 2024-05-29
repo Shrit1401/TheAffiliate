@@ -29,11 +29,7 @@ export default function Home() {
         </div>
       </div>
       <Features />
-      <div className="mb-8">
-        <div className="text-center text-4xl font-bold mb-4">
-          Top Affiliates
-        </div>
-      </div>
+      <div className="mb-8"></div>
       <CTA />
     </main>
   );

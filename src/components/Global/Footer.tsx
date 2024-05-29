@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { ImGithub, ImTwitter } from "react-icons/im";
 
@@ -5,9 +6,11 @@ const Footer = () => {
   return (
     <footer className="footer items-center p-4 mt-4 bg-[#1e1e1e] text-neutral-content">
       <aside className="items-center grid-flow-col">
-        <img
+        <Image
           src="/images/icon_light.svg"
           alt="logo"
+          width={40}
+          height={40}
           className="
             w-10 h-10
             rounded-full

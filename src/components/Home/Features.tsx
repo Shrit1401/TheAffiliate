@@ -30,7 +30,7 @@ const Features = () => {
       <div className="hero min-h-[50vh] my-16 bg-transparent">
         <div className="hero-content flex-col lg:flex-row">
           <Image
-            src={"/images/features/feature1.png"}
+            src="/images/features/feature1.png"
             alt="feature1"
             width={500}
             height={500}
@@ -40,8 +40,8 @@ const Features = () => {
             <h1 className="text-5xl font-bold">Submit with Ease!</h1>
             <p className="py-6">
               Joining our affiliate program is simple and straightforward.
-              Submit your details, get your unique affiliate link, and start
-              earning commissions in no time. It's that easy!
+              Submit your details, get your post on the site, and start getting
+              traffic to your website in no time. It&apos;s that easy!
             </p>
             <a href="/submit" className="btn btn-primary">
               Join Now
@@ -53,7 +53,7 @@ const Features = () => {
       <div className="hero min-h-[50vh] my-16 bg-transparent">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
-            src={"/images/features/feature2.png"}
+            src="/images/features/feature2.png"
             alt="feature2"
             width={500}
             height={500}
