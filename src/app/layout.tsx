@@ -30,9 +30,9 @@ export default function RootLayout({
           sizes="48x48"
         />
       </head>
-      <body>
+      <body className="flex h-screen flex-col">
         <Navbar />
-        {children}
+        <main className="flex-1">{children}</main>
         <Footer />
         <Toaster />
       </body>

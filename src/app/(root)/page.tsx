@@ -2,9 +2,8 @@
 
 import { BackgroundBeams } from "@/components/Global/BackgroundBeams";
 import CTA from "@/components/Global/CTA";
-import Card from "@/components/Global/Card";
-import AffiliatesCards from "@/components/Home/AffiliatesCards";
-import SliderCard from "@/components/Home/SliderCard";
+import { HoverBorderGradientHome } from "@/components/Home/HoverBorderGradient";
+import Features from "../../components/Home/Features";
 
 export default function Home() {
   return (
@@ -12,6 +11,7 @@ export default function Home() {
       <BackgroundBeams className="z-[-1]" />
 
       <div className="text-center h-[50vh] flex items-center flex-col justify-center gap-4 md:gap-5">
+        <HoverBorderGradientHome />
         <h1 className="heading text">
           Discover Top Affiliates,
           <br /> Boost Your Income Instantly
@@ -28,14 +28,12 @@ export default function Home() {
           </a>
         </div>
       </div>
+      <Features />
       <div className="mb-8">
         <div className="text-center text-4xl font-bold mb-4">
-          Hot Affiliates
+          Top Affiliates
         </div>
-        {/* TODO: change homepage and new good looking stuff */}
-        <SliderCard />
       </div>
-      <AffiliatesCards />
       <CTA />
     </main>
   );

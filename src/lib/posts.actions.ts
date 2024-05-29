@@ -97,3 +97,15 @@ export const decrementUpvotes = async (postId: string) => {
     handleError(error);
   }
 };
+
+export const isGoodPosts = async () => {
+  try {
+    const res = await db.query.posts.findMany({
+      where: eq(posts.isGood, true),
+      limit: 10,
+    });
+    return res as PostPrompts[];
+  } catch (error) {
+    handleError(error);
+  }
+};

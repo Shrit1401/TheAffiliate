@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import {
+  decrementUpvotes,
   getPostById,
   incrementUpvotes,
-  decrementUpvotes,
 } from "@/lib/posts.actions";
 import { PostPrompts } from "../../../../../types";
 import { BackgroundBeams } from "@/components/Global/BackgroundBeams";

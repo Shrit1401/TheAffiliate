@@ -11,7 +11,7 @@
 .heading {
   line-height: 1;
   letter-spacing: -0.4px;
-  @apply px-4 md:text-6xl text-5xl font-bold;
+  @apply px-4 md:text-6xl text-[2.75rem] font-bold;
 }
 
 h1 {
@@ -32,4 +32,48 @@ input[type="number"]::-webkit-outer-spin-button {
   -moz-appearance: none;
   appearance: none;
   margin: 0;
+}
+
+/* pagination */
+.pagination ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.pagination ul li {
+  margin: 0 5px;
+}
+
+.pagination ul li a {
+  display: inline-block;
+  padding: 5px 10px;
+  width: max-content;
+  @media (max-width: 767px) {
+    width: auto;
+  }
+  text-decoration: none;
+  color: white;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.pagination ul li a:hover {
+  background-color: white;
+  color: black;
+}
+
+.pagination ul li.selected a {
+  background-color: white;
+  color: black;
+}
+
+.pagination ul li.disabled a {
+  color: gray;
+  pointer-events: none;
 }

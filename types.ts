@@ -10,7 +10,7 @@ export type PostPrompts = {
   price: string;
   url: string;
   upvotes?: number;
-  downvotes?: number;
+  isGood?: boolean;
 };
 
 export const Categories = ["Money", "Recents", "Food", "Health", "Tech"];
