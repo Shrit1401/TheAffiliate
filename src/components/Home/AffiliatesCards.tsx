@@ -94,8 +94,8 @@ const AffiliatesCards = () => {
 
   return (
     <div>
-      <div className="flex w-full justify-between px-4">
-        <label className="input input-bordered flex items-center md:w-96 gap-2">
+      <div className="flex w-full flex-col md:flex-row gap-5 justify-between px-4">
+        <label className="input input-bordered flex items-center md:w-96  md:mx-4 gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"

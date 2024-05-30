@@ -66,7 +66,7 @@ const PostForm = () => {
       });
       toast.success("Post submitted successfully");
 
-      router.push(`/posts/${res![0].id}`);
+      router.push(`/affiliates/${res![0].id}`);
     } catch (error) {
       handleError(error);
     }
@@ -139,13 +139,14 @@ const PostForm = () => {
               </span>
             )}
             <textarea
-              className="input input-bordered"
+              className="textarea textarea-bordered py-2"
               placeholder="Enter Description"
               {...register("description", {
                 required: "Description is required",
               })}
               onChange={handleChange}
             />
+
             {errors.description && (
               <span className="badge badge-error">
                 {errors.description.message}

@@ -19,33 +19,40 @@ const TopAffiliate = () => {
       <div className="text-center text-4xl font-bold mb-4">Top Affiliates</div>
       <div className="flex justify-center flex-col gap-4">
         <div className="container mx-auto p-4 flex justify-center items-center">
-          <div className="grid grid-cols-1 text-center md:text-left md:grid-cols-2 gap-4 md:gap-16">
+          <div className="grid grid-cols-1 text-left md:grid-cols-2 gap-4 md:gap-16">
             {posts.map((post, index) => (
               <div
                 key={post.id}
-                className="flex flex-row justify-between gap-4"
+                className="flex flex-row justify-between items-center gap-4 py-2"
               >
-                <div className="number bg-primary rounded-full min-w-12 min-h-12 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-black">
+                <div className="number w-12 text-center">
+                  <span className="text-2xl font-bold text-primary">
                     {index + 1 < 10 ? `0${index + 1}` : index + 1}
                   </span>
                 </div>
-                <h1 className="text-2xl font-medium">{post.title}</h1>
-                <a href={`/affiliates/${post.id}`} className="btn btn-outline">
-                  Learn More
-                  <Image
-                    alt="arrow"
-                    src="/images/arrow.svg"
-                    className="invert"
-                    width={20}
-                    height={20}
-                  />
-                </a>
+                <div className="flex-1">
+                  <h1 className="text-2xl font-medium">{post.title}</h1>
+                </div>
+                <div className="flex-shrink-0">
+                  <a
+                    href={`/affiliates/${post.id}`}
+                    className="btn btn-outline flex items-center gap-2"
+                  >
+                    <span>Learn More</span>
+                    <Image
+                      alt="arrow"
+                      src="/images/arrow.svg"
+                      className="invert"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                </div>
               </div>
             ))}
           </div>
         </div>
-        <a href="/affiliates" className="btn btn-primary text-xl m-auto ">
+        <a href="/affiliates" className="btn btn-primary text-xl m-auto">
           View All
         </a>
       </div>

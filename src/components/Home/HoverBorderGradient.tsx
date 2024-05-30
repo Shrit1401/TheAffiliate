@@ -6,10 +6,10 @@ import NumberTicker from "../magicui/number-ticker";
 
 export function HoverBorderGradientHome() {
   return (
-    <HoverBorderGradient className="flex items-center justify-center space-x-2 bg-base-100  text-primary">
-      <Image src="/images/icon_light.svg" alt="logo" width={28} height={28} />
+    <HoverBorderGradient className="flex items-center justify-center space-x-2 bg-base-100 text-primary">
+      <Image src="/images/icon_light.svg" alt="logo" width={18} height={18} />
       <NumberTicker value={50} />+
-      <span className="text-lg font-medium">Affiliates</span>
+      <span className="text-sm font-medium">Affiliates</span>
     </HoverBorderGradient>
   );
 }

@@ -4,7 +4,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="navbar flex justify-around items-center md:px-16 py-8 md:mt-2">
+    <div className="navbar flex justify-around items-center md:px-16 py-8 z-[999] md:mt-2">
       <a className="gap-2 btn btn-ghost" href="/">
         <Image
           src="/images/icon_light.svg"

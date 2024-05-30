@@ -11,7 +11,7 @@ const Features = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <AnimatesPaymentList />
           <div>
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-3xl md:text-4xl font-bold">
               Earn Big with Affiliate Marketing!
             </h1>
             <p className="py-6">
@@ -37,7 +37,9 @@ const Features = () => {
             className="rounded-lg object-cover"
           />
           <div>
-            <h1 className="text-5xl font-bold">Submit with Ease!</h1>
+            <h1 className="text-3xl md:text-4xl font-bold">
+              Submit with Ease!
+            </h1>
             <p className="py-6">
               Joining our affiliate program is simple and straightforward.
               Submit your details, get your post on the site, and start getting
@@ -60,7 +62,9 @@ const Features = () => {
             className="rounded-lg object-cover"
           />
           <div>
-            <h1 className="text-5xl font-bold">Top Affiliates Onboard!</h1>
+            <h1 className="text-3xl md:text-4xl font-bold">
+              Top Affiliates Onboard!
+            </h1>
             <p className="py-6">
               Join a community of high-earning affiliates who are reaping the
               benefits of our lucrative program. Learn from the best and
