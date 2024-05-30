@@ -34,7 +34,7 @@ const Footer = () => {
       </aside>
       <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <a
-          href="https://x.com/kazikageagency"
+          href="https://x.com/shrit1401"
           className="btn btn-ghost btn-circle"
           aria-label="Visit our Twitter"
           target="_blank"
@@ -43,8 +43,7 @@ const Footer = () => {
           <ImTwitter size={32} />
         </a>
         <a
-          // TODO: set up a github account
-          href="https://x.com/kazikageagency"
+          href="https://github.com/shrit1401"
           className="btn btn-ghost btn-circle"
           aria-label="Visit our Twitter"
           target="_blank"
