@@ -3,32 +3,22 @@ import Image from "next/image";
 import { CardPrompts } from "../../../types";
 import toast from "react-hot-toast";
 import { decrementUpvotes, incrementUpvotes } from "@/lib/posts.actions";
-import Arrow from "../../../public/images/arrow.svg";
-import Upvote from "../../../public/images/upvote.svg";
 
-const Card = ({
-  id,
-  imageUrl,
-  title,
-  summary,
-  url,
-  price,
-  upvotes,
-}: CardPrompts) => {
+const Card = (card: CardPrompts) => {
   const [upvoted, setUpvoted] = useState(false);
 
   useEffect(() => {
-    const storedUpvote = localStorage.getItem(`upvoted-${id}`);
+    const storedUpvote = localStorage.getItem(`upvoted-${card.id}`);
     if (storedUpvote) {
       setUpvoted(true);
     }
-  }, [id]);
+  }, [card.id]);
 
   const handleUpvote = () => {
     if (upvoted) {
-      localStorage.removeItem(`upvoted-${id}`);
+      localStorage.removeItem(`upvoted-${card.id}`);
       setUpvoted(false);
-      decrementUpvotes(id!);
+      decrementUpvotes(card.id!);
       toast("Upvote removed", {
         icon: "😭",
         style: {
@@ -37,9 +27,9 @@ const Card = ({
         },
       });
     } else {
-      localStorage.setItem(`upvoted-${id}`, "true");
+      localStorage.setItem(`upvoted-${card.id}`, "true");
       setUpvoted(true);
-      incrementUpvotes(id!);
+      incrementUpvotes(card.id!);
       toast.success("Upvoted successfully!", {
         style: {
           background: "#333",
@@ -49,10 +39,8 @@ const Card = ({
     }
   };
 
-  const handleSampleUrl = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
-    if (url === "nr") {
+  const sampleUrl = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (card.url === "nr") {
       toast.error("This is a preview card, you can't visit it😂", {
         style: {
           background: "#333",
@@ -65,19 +53,17 @@ const Card = ({
 
   return (
     <div className="bg-[#1A1A1A] flex flex-col gap-6 rounded-md pb-4 overflow-hidden">
-      <div className="relative w-full h-60">
-        <Image
-          src={imageUrl}
-          alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-t-md object-center"
-        />
-      </div>
+      <img
+        src={card.imageUrl}
+        className="rounded-t-md bg-cover h-[15rem] object-cover w-full"
+        alt={card.title}
+      />
       <div className="px-4 flex justify-between items-center">
         <div className="flex flex-col w-3/4 max-w-full">
-          <h1 className="text-2xl text-white truncate">{title}</h1>
-          <p className="text-base-content font-medium truncate">{summary}</p>
+          <h1 className="text-2xl text-white truncate">{card.title}</h1>
+          <p className="text-base-content font-medium truncate">
+            {card.summary}
+          </p>
         </div>
         <div className="tooltip tooltip-left" data-tip="Upvote This Program">
           <button
@@ -87,25 +73,25 @@ const Card = ({
             }`}
           >
             <Image
-              src={Upvote}
+              src="/images/upvote.svg"
               width={20}
               height={20}
               alt="upvote"
               className={`${upvoted ? "invert" : ""}`}
             />
-            {upvotes + (upvoted ? 1 : 0)}
+            {card.upvotes + (upvoted ? 1 : 0)}
           </button>
         </div>
       </div>
       <div className="px-4 flex gap-5">
-        <button className="btn cursor-not-allowed">${price} / lead</button>
+        <button className="btn cursor-not-allowed">${card.price} / lead</button>
         <a
-          onClick={handleSampleUrl}
-          href={url === "nr" ? "" : `/affiliates/${id}`}
+          onClick={sampleUrl}
+          href={card.url === "nr" ? "" : `/affiliates/${card.id}`}
           className="btn btn-primary flex items-center gap-2"
         >
           Learn More
-          <Image src={Arrow} alt="arrow" />
+          <Image src="/images/arrow.svg" width={20} height={20} alt="arrow" />
         </a>
       </div>
     </div>
