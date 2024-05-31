@@ -14,7 +14,7 @@ const Footer = () => {
           className="w-10 h-10 rounded-full shadow-lg bg-neutral-content bg-opacity-75"
         />
         <p>
-          Affiliate.io, Copyright © {new Date().getFullYear()} - All rights
+          Affiliate, Copyright © {new Date().getFullYear()} - All rights
           reserved, hopefully,{" "}
           <a
             href="https://seolevelup.com/"

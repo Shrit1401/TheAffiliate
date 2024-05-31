@@ -7,12 +7,12 @@ const Navbar = () => {
   return (
     <div className="navbar flex justify-around items-center md:px-16 py-8 z-[999] md:mt-2">
       <a className="gap-2 btn btn-ghost" href="/">
-        <Image src={Icon} width={32} height={32} alt="Affiliate.io Logo" />
+        <Image src={Icon} width={32} height={32} alt="Affiliate Logo" />
         <div className="indicator">
           <span className="indicator-item indicator-start badge badge-secondary">
             The
           </span>
-          <h1 className="md:text-3xl text-xl text-white">Affiliate.io</h1>
+          <h1 className="md:text-3xl text-xl text-white">Affiliate</h1>
         </div>
       </a>
       <div className="dropdown dropdown-end">

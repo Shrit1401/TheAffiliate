@@ -40,8 +40,8 @@ export const Testimonial2 = () => {
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
         <figure>
           <blockquote className="text-center font-semibold text-[1.5rem]  md:text-3xl leading-9 md:leading-10">
-            &quot;Become a part of the Affiliate.io community today and take
-            your marketing to the next level. &quot;
+            &quot;Become a part of the Affiliate community today and take your
+            marketing to the next level. &quot;
           </blockquote>
           <figcaption className="mt-4">
             <div className="mt-4 flex items-center justify-center space-x-3">

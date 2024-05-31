@@ -5,13 +5,12 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Global/Navbar";
 import Footer from "@/components/Global/Footer";
 
-const MetadataImage =
-  "https://affiliate-jbb6xzkqc-shnrit1401s-projects.vercel.app/images/card.png";
+import MetadataImage from "../../public/images/card.png";
 
 export const metadata: Metadata = {
-  title: "TheAffiliate.io - Your Ultimate Affiliate Programs Directory",
+  title: "TheAffiliate - Your Ultimate Affiliate Programs Directory",
   description:
-    "Discover and compare the best affiliate programs on TheAffiliate.io. Upvote your favorites, find expert insights, and boost your affiliate marketing success today!",
+    "Discover and compare the best affiliate programs on TheAffiliate. Upvote your favorites, find expert insights, and boost your affiliate marketing success today!",
   icons: {
     icon: "images/icon_dark.svg",
   },
@@ -22,13 +21,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://theaffiliate.io",
     images: [
       {
-        url: MetadataImage,
+        url: MetadataImage.src,
         width: 1500,
         height: 750,
-        alt: "TheAffiliate.io",
+        alt: "TheAffiliate",
       },
     ],
   },
