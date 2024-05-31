@@ -6,7 +6,7 @@ import Navbar from "@/components/Global/Navbar";
 import Footer from "@/components/Global/Footer";
 
 const MetadataImage =
-  "https://affiliate-jbb6xzkqc-shrit1401s-projects.vercel.app/images/card.png";
+  "https://affiliate-jbb6xzkqc-shnrit1401s-projects.vercel.app/images/card.png";
 
 export const metadata: Metadata = {
   title: "TheAffiliate.io - Your Ultimate Affiliate Programs Directory",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@theaffiliateio",
+    site: "@shrit1401",
   },
   openGraph: {
     type: "website",

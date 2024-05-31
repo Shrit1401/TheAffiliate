@@ -82,20 +82,17 @@ const AffiliatesCards = () => {
     search.length > 0 ? searchPost() : fetchPosts();
   }, [selectedCategories, search, setPosts]);
 
-  const filterSampleCategories = () => {
-    toast.error("We are working on this feature!", {
-      icon: "🚧",
-      style: {
-        background: "#333",
-        color: "#fff",
-      },
-    });
-  };
-
   return (
     <div>
-      <div className="flex w-full flex-col md:flex-row gap-5 justify-between px-4">
+      <div className="flex w-full flex-col md:flex-row gap-5 justify-end px-4">
         <label className="input input-bordered flex items-center md:w-96  md:mx-4 gap-2">
+          <input
+            type="text"
+            className="grow"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search An Affiliate..."
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -108,50 +105,7 @@ const AffiliatesCards = () => {
               clipRule="evenodd"
             />
           </svg>
-          <input
-            type="text"
-            className="grow"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search An Affiliate..."
-          />
         </label>
-
-        <button onClick={filterSampleCategories} className="btn btn-primary">
-          <FaFilter className="invert" />
-          Filter Categories
-        </button>
-        {/* <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-primary m-1">
-            <FaFilter className="invert" />
-            Filter Categories
-          </div>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            {Categories.map((category) => (
-              <li key={category}>
-                <a href="#" className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    className="checkbox"
-                    id={category}
-                    checked={selectedCategories.includes(category)}
-                    onChange={() => {
-                      setSelectedCategories((prev) =>
-                        prev.includes(category)
-                          ? prev.filter((item) => item !== category)
-                          : [...prev, category]
-                      );
-                    }}
-                  />
-                  <label htmlFor={category}>{category}</label>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div> */}
       </div>
       {posts.length === 0 ? (
         <div className="flex justify-center items-center gap-4 h-40">
