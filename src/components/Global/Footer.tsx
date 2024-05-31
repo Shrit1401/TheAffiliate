@@ -1,27 +1,21 @@
 import Image from "next/image";
 import React from "react";
 import { ImGithub, ImTwitter } from "react-icons/im";
-
+import Icon from "../../../public//images/icon_light.svg";
 const Footer = () => {
   return (
-    <footer className="footer items-center p-4 mt-4 bg-[#1e1e1e] text-neutral-content">
-      <aside className="items-center grid-flow-col">
+    <footer className="footer items-center p-4 bg-[#1e1e1e] text-neutral-content">
+      <aside className="grid items-center grid-flow-col">
         <Image
-          src="/images/icon_light.svg"
+          src={Icon}
           alt="logo"
           width={40}
           height={40}
-          className="
-            w-10 h-10
-            rounded-full
-            shadow-lg
-            bg-neutral-content
-            bg-opacity-75
-        "
+          className="w-10 h-10 rounded-full shadow-lg bg-neutral-content bg-opacity-75"
         />
         <p>
-          Affiliate.io, Copyright © {new Date().getFullYear()} - All right
-          reserved hopefully,{" "}
+          Affiliate.io, Copyright © {new Date().getFullYear()} - All rights
+          reserved, hopefully,{" "}
           <a
             href="https://seolevelup.com/"
             target="_blank"
@@ -32,7 +26,7 @@ const Footer = () => {
           </a>
         </p>
       </aside>
-      <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <nav className="grid grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <a
           href="https://x.com/shrit1401"
           className="btn btn-ghost btn-circle"
@@ -45,7 +39,7 @@ const Footer = () => {
         <a
           href="https://github.com/shrit1401"
           className="btn btn-ghost btn-circle"
-          aria-label="Visit our Twitter"
+          aria-label="Visit our GitHub"
           target="_blank"
           rel="noreferrer"
         >

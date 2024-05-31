@@ -1,17 +1,13 @@
 import Image from "next/image";
 import { HiMenuAlt3 } from "react-icons/hi";
-import React from "react";
+import Arrow from "../../../public/images/arrow.svg";
+import Icon from "../../../public/images/icon_light.svg";
 
 const Navbar = () => {
   return (
     <div className="navbar flex justify-around items-center md:px-16 py-8 z-[999] md:mt-2">
       <a className="gap-2 btn btn-ghost" href="/">
-        <Image
-          src="/images/icon_light.svg"
-          width={32}
-          height={32}
-          alt="Affiliate.io Logo"
-        />
+        <Image src={Icon} width={32} height={32} alt="Affiliate.io Logo" />
         <h1 className="md:text-3xl text-xl text-white">Affiliate.io</h1>
       </a>
       <div className="dropdown dropdown-end">
@@ -37,13 +33,7 @@ const Navbar = () => {
           <li>
             <a href="/submit" className="btn btn-primary">
               Submit Now
-              <Image
-                src="/images/arrow.svg"
-                className="pb-1"
-                alt="arrow"
-                width={16}
-                height={12}
-              />
+              <Image src={Arrow} className="pb-1" alt="arrow" />
             </a>
           </li>
         </ul>
@@ -57,13 +47,7 @@ const Navbar = () => {
         <li>
           <a href="/submit" className="btn btn-primary">
             Submit Now
-            <Image
-              src="/images/arrow.svg"
-              className="pb-1"
-              alt="arrow"
-              width={16}
-              height={12}
-            />
+            <Image src={Arrow} className="pb-1" alt="arrow" />
           </a>
         </li>
       </ul>

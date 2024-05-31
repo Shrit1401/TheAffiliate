@@ -1,16 +1,16 @@
 "use client";
-
+import React from "react";
 import { BackgroundBeams } from "@/components/Global/BackgroundBeams";
 import CTA from "@/components/Global/CTA";
 import { HoverBorderGradientHome } from "@/components/Home/HoverBorderGradient";
-import Features from "../../components/Home/Features";
+import Features from "@/components/Home/Features";
 
 export default function Home() {
   return (
     <main>
       <BackgroundBeams className="z-[-1]" />
 
-      <div className="text-center h-[50vh] flex items-center flex-col justify-center gap-4 md:gap-5">
+      <div className="text-center mt-8 md:mt-0 md:h-[50vh] flex items-center flex-col justify-center gap-4 md:gap-5">
         <HoverBorderGradientHome />
         <h1 className="heading text">
           Discover Top Affiliates,
@@ -24,12 +24,13 @@ export default function Home() {
             Get Started
           </a>
           <a href="/submit" className="btn btn-outline border-white">
-            Submit Your Buisness
+            Submit Your Business
           </a>
         </div>
       </div>
+
       <Features />
-      <div className="mb-8"></div>
+
       <CTA />
     </main>
   );

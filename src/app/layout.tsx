@@ -4,7 +4,6 @@ import { Toaster } from "react-hot-toast";
 
 import Navbar from "@/components/Global/Navbar";
 import Footer from "@/components/Global/Footer";
-import CTA from "@/components/Global/CTA";
 
 export const metadata: Metadata = {
   title: "Affiliate.io",
@@ -30,7 +29,7 @@ export default function RootLayout({
           sizes="48x48"
         />
       </head>
-      <body className="flex h-screen flex-col">
+      <body className="flex h-full flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

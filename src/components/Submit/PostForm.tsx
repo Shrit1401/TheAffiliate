@@ -1,15 +1,16 @@
 "use client";
 
-import { handleError } from "@/lib/utils";
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FaDollarSign } from "react-icons/fa6";
-import { PostSchemaPrompts, Categories } from "../../../types";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import toast from "react-hot-toast";
+import { FaDollarSign } from "react-icons/fa6";
+
+import { handleError } from "@/lib/utils";
 import { uploadImage } from "@/lib/upload";
 import { insertPost } from "@/lib/posts.actions";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { PostSchemaPrompts, Categories } from "../../../types";
 import Card from "../Global/Card";
 
 const PostForm = () => {
@@ -49,21 +50,11 @@ const PostForm = () => {
   const onSubmit: SubmitHandler<PostSchemaPrompts> = async (fields) => {
     try {
       if (!imageFile) throw new Error("No image selected");
-      let imageUrl: string | undefined = await uploadImage(
-        imageFile,
-        fields.title
-      );
+      const imageUrl = await uploadImage(imageFile, fields.title);
       if (!imageUrl) throw new Error("Image upload failed");
+
       const post = { ...fields, imageUrl };
-      let res = await insertPost({
-        imageUrl: post.imageUrl,
-        title: post.title,
-        summary: post.summary,
-        category: post.category,
-        description: post.description,
-        price: post.price,
-        url: post.url,
-      });
+      const res = await insertPost(post);
       toast.success("Post submitted successfully");
 
       router.push(`/affiliates/${res![0].id}`);
@@ -96,16 +87,15 @@ const PostForm = () => {
               {...register("title", { required: "Title is required" })}
               onChange={handleChange}
             />
+            {errors.title && (
+              <span className="badge badge-error">{errors.title.message}</span>
+            )}
             <input
               className="file-input file-input-bordered"
               type="file"
               accept="image/*"
               onChange={handleFileChange}
             />
-
-            {errors.title && (
-              <span className="badge badge-error">{errors.title.message}</span>
-            )}
             <input
               className="input input-bordered"
               placeholder="Summarize your post in one sentence."
@@ -146,7 +136,6 @@ const PostForm = () => {
               })}
               onChange={handleChange}
             />
-
             {errors.description && (
               <span className="badge badge-error">
                 {errors.description.message}

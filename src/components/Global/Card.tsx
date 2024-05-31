@@ -3,22 +3,32 @@ import Image from "next/image";
 import { CardPrompts } from "../../../types";
 import toast from "react-hot-toast";
 import { decrementUpvotes, incrementUpvotes } from "@/lib/posts.actions";
+import Arrow from "../../../public/images/arrow.svg";
+import Upvote from "../../../public/images/upvote.svg";
 
-const Card = (card: CardPrompts) => {
+const Card = ({
+  id,
+  imageUrl,
+  title,
+  summary,
+  url,
+  price,
+  upvotes,
+}: CardPrompts) => {
   const [upvoted, setUpvoted] = useState(false);
 
   useEffect(() => {
-    const storedUpvote = localStorage.getItem(`upvoted-${card.id}`);
+    const storedUpvote = localStorage.getItem(`upvoted-${id}`);
     if (storedUpvote) {
       setUpvoted(true);
     }
-  }, [card.id]);
+  }, [id]);
 
   const handleUpvote = () => {
     if (upvoted) {
-      localStorage.removeItem(`upvoted-${card.id}`);
+      localStorage.removeItem(`upvoted-${id}`);
       setUpvoted(false);
-      decrementUpvotes(card.id!);
+      decrementUpvotes(id!);
       toast("Upvote removed", {
         icon: "😭",
         style: {
@@ -27,9 +37,9 @@ const Card = (card: CardPrompts) => {
         },
       });
     } else {
-      localStorage.setItem(`upvoted-${card.id}`, "true");
+      localStorage.setItem(`upvoted-${id}`, "true");
       setUpvoted(true);
-      incrementUpvotes(card.id!);
+      incrementUpvotes(id!);
       toast.success("Upvoted successfully!", {
         style: {
           background: "#333",
@@ -39,8 +49,10 @@ const Card = (card: CardPrompts) => {
     }
   };
 
-  const sampleUrl = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (card.url === "nr") {
+  const handleSampleUrl = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    if (url === "nr") {
       toast.error("This is a preview card, you can't visit it😂", {
         style: {
           background: "#333",
@@ -53,17 +65,19 @@ const Card = (card: CardPrompts) => {
 
   return (
     <div className="bg-[#1A1A1A] flex flex-col gap-6 rounded-md pb-4 overflow-hidden">
-      <img
-        src={card.imageUrl}
-        className="rounded-t-md bg-cover h-[15rem] object-cover w-full"
-        alt={card.title}
-      />
+      <div className="relative w-full h-60">
+        <Image
+          src={imageUrl}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-t-md object-center"
+        />
+      </div>
       <div className="px-4 flex justify-between items-center">
         <div className="flex flex-col w-3/4 max-w-full">
-          <h1 className="text-2xl text-white truncate">{card.title}</h1>
-          <p className="text-base-content font-medium truncate">
-            {card.summary}
-          </p>
+          <h1 className="text-2xl text-white truncate">{title}</h1>
+          <p className="text-base-content font-medium truncate">{summary}</p>
         </div>
         <div className="tooltip tooltip-left" data-tip="Upvote This Program">
           <button
@@ -73,25 +87,25 @@ const Card = (card: CardPrompts) => {
             }`}
           >
             <Image
-              src="/images/upvote.svg"
+              src={Upvote}
               width={20}
               height={20}
               alt="upvote"
               className={`${upvoted ? "invert" : ""}`}
             />
-            {card.upvotes + (upvoted ? 1 : 0)}
+            {upvotes + (upvoted ? 1 : 0)}
           </button>
         </div>
       </div>
       <div className="px-4 flex gap-5">
-        <button className="btn cursor-not-allowed">${card.price} / lead</button>
+        <button className="btn cursor-not-allowed">${price} / lead</button>
         <a
-          onClick={sampleUrl}
-          href={card.url === "nr" ? "" : `/affiliates/${card.id}`}
+          onClick={handleSampleUrl}
+          href={url === "nr" ? "" : `/affiliates/${id}`}
           className="btn btn-primary flex items-center gap-2"
         >
           Learn More
-          <Image src="/images/arrow.svg" width={20} height={20} alt="arrow" />
+          <Image src={Arrow} alt="arrow" />
         </a>
       </div>
     </div>

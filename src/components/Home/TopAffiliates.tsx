@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { PostPrompts } from "../../../types";
 import { isGoodPosts } from "@/lib/posts.actions";
 import Image from "next/image";
+import Arrow from "../../../public/images/arrow.svg";
 
 const TopAffiliate = () => {
   const [posts, setPosts] = useState<PostPrompts[]>([]);
@@ -39,13 +40,7 @@ const TopAffiliate = () => {
                     className="btn btn-outline flex items-center gap-2"
                   >
                     <span>Learn More</span>
-                    <Image
-                      alt="arrow"
-                      src="/images/arrow.svg"
-                      className="invert"
-                      width={20}
-                      height={20}
-                    />
+                    <Image alt="arrow" src={Arrow} className="invert" />
                   </a>
                 </div>
               </div>

@@ -10,6 +10,7 @@ import { PostPrompts } from "../../../../../types";
 import { BackgroundBeams } from "@/components/Global/BackgroundBeams";
 import toast from "react-hot-toast";
 import Image from "next/image";
+import Upvote from "../../../../../public/images/upvote.svg";
 
 const AffiliateProgramPage = () => {
   const { postid } = useParams();
@@ -65,7 +66,7 @@ const AffiliateProgramPage = () => {
     );
   }
 
-  const visitWesbite = () => {
+  const visitWebsite = () => {
     if (!upvoted) {
       localStorage.setItem(`upvoted-${postid}`, "true");
       setUpvoted(true);
@@ -76,9 +77,9 @@ const AffiliateProgramPage = () => {
   return (
     <main className="flex flex-col gap-5 mb-10">
       <BackgroundBeams className="z-[-9]" />
-      <div className="flex md:justify-around justify-between mt-4">
+      <div className="flex md:justify-around md:flex-row items-center flex-col mt-4">
         <div className="flex flex-col">
-          <h1 className="heading">{post.title}</h1>
+          <h1 className="heading capitalize">{post.title}</h1>
         </div>
         <div className="px-4 flex items-center gap-4">
           <div className="tooltip tooltip-left" data-tip="Upvote This Program">
@@ -89,7 +90,7 @@ const AffiliateProgramPage = () => {
               }`}
             >
               <Image
-                src="/images/upvote.svg"
+                src={Upvote}
                 width={20}
                 height={20}
                 alt="upvote"
@@ -100,7 +101,7 @@ const AffiliateProgramPage = () => {
           </div>
           <div className="flex justify-center my-4">
             <a
-              onClick={visitWesbite}
+              onClick={visitWebsite}
               href={post.url}
               target="_blank"
               rel="noreferrer"
@@ -112,11 +113,16 @@ const AffiliateProgramPage = () => {
         </div>
       </div>
       <h2 className="text-center text-[18px]">{post.summary}</h2>
-      <img
-        src={post.imageUrl}
-        alt={post.title}
-        className="mx-4 rounded-lg my-4 md:mx-auto md:w-[70%] w-[95%]"
-      />
+      <div className="flex justify-center">
+        <Image
+          src={post.imageUrl}
+          alt={post.title}
+          width={500}
+          height={300}
+          className="rounded-lg w-[70%] h-auto md:h-[300px]"
+          style={{ objectFit: "contain" }}
+        />
+      </div>
       <p className="md:px-52 px-16 text-lg font-medium">{post.description}</p>
     </main>
   );

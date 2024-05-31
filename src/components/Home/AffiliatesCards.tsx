@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaFilter } from "react-icons/fa";
 import Card from "../Global/Card";
-import { Categories, PostPrompts } from "../../../types";
+import { PostPrompts } from "../../../types";
 import { getAllPosts } from "@/lib/posts.actions";
 import { handleError } from "@/lib/utils";
 import ReactPaginate from "react-paginate";
@@ -30,57 +30,59 @@ function Items({ currentItems }: { currentItems: PostPrompts[] }) {
 
 const AffiliatesCards = () => {
   const itemsPerPage = 6;
-  const [itemOffset, setItemOffset] = React.useState(0);
-
-  const [selectedCategories, setSelectedCategories] = React.useState<string[]>(
-    []
-  );
-  const [search, setSearch] = React.useState("");
-
-  const [posts, setPosts] = React.useState<PostPrompts[]>([]);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [search, setSearch] = useState("");
+  const [posts, setPosts] = useState<PostPrompts[]>([]);
 
   const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  const currentItems = posts!.slice(itemOffset, endOffset);
+  const currentItems = posts.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(posts.length / itemsPerPage);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const posts = await getAllPosts();
+        if (selectedCategories.length > 0) {
+          const filteredPosts = posts.filter((post) =>
+            selectedCategories.includes(post.category)
+          );
+          setPosts(filteredPosts);
+        } else {
+          setPosts(posts as PostPrompts[]);
+        }
+      } catch (error) {
+        handleError(error);
+      }
+    };
+
+    const searchPosts = async () => {
+      try {
+        const posts = await getAllPosts();
+        const filteredPosts = posts.filter((post) =>
+          post.title.toLowerCase().includes(search.toLowerCase())
+        );
+        if (selectedCategories.length > 0) {
+          const categoryFilteredPosts = filteredPosts.filter((post) =>
+            selectedCategories.includes(post.category)
+          );
+          setPosts(categoryFilteredPosts);
+        } else {
+          setPosts(filteredPosts);
+        }
+      } catch (error) {
+        handleError(error);
+      }
+    };
+
+    search.length > 0 ? searchPosts() : fetchPosts();
+  }, [selectedCategories, search]);
 
   const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % posts.length;
     setItemOffset(newOffset);
     window.scrollTo(0, 0);
   };
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const posts = await getAllPosts().catch((error) => handleError(error));
-      if (selectedCategories.length > 0) {
-        const filteredPosts = posts!.filter((post) =>
-          selectedCategories.includes(post.category)
-        );
-        setPosts(filteredPosts);
-        return;
-      }
-      setPosts(posts as PostPrompts[]);
-    };
-
-    const searchPost = async () => {
-      const posts = await getAllPosts();
-      const filteredPosts = posts.filter((post) =>
-        post.title.toLowerCase().includes(search.toLowerCase())
-      );
-      if (selectedCategories.length > 0) {
-        const categoryFilteredPosts = filteredPosts.filter((post) =>
-          selectedCategories.includes(post.category)
-        );
-        setPosts(categoryFilteredPosts);
-        return;
-      }
-      setPosts(filteredPosts);
-    };
-
-    // fetchPosts();
-    search.length > 0 ? searchPost() : fetchPosts();
-  }, [selectedCategories, search, setPosts]);
 
   const filterSampleCategories = () => {
     toast.error("We are working on this feature!", {
@@ -95,7 +97,7 @@ const AffiliatesCards = () => {
   return (
     <div>
       <div className="flex w-full flex-col md:flex-row gap-5 justify-between px-4">
-        <label className="input input-bordered flex items-center md:w-96  md:mx-4 gap-2">
+        <label className="input input-bordered flex items-center md:w-96 md:mx-4 gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -116,42 +118,10 @@ const AffiliatesCards = () => {
             placeholder="Search An Affiliate..."
           />
         </label>
-
         <button onClick={filterSampleCategories} className="btn btn-primary">
           <FaFilter className="invert" />
           Filter Categories
         </button>
-        {/* <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-primary m-1">
-            <FaFilter className="invert" />
-            Filter Categories
-          </div>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            {Categories.map((category) => (
-              <li key={category}>
-                <a href="#" className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    className="checkbox"
-                    id={category}
-                    checked={selectedCategories.includes(category)}
-                    onChange={() => {
-                      setSelectedCategories((prev) =>
-                        prev.includes(category)
-                          ? prev.filter((item) => item !== category)
-                          : [...prev, category]
-                      );
-                    }}
-                  />
-                  <label htmlFor={category}>{category}</label>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div> */}
       </div>
       {posts.length === 0 ? (
         <div className="flex justify-center items-center gap-4 h-40">

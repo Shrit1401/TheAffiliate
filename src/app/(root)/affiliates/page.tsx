@@ -1,3 +1,4 @@
+import CTA from "@/components/Global/CTA";
 import AffiliatesCards from "@/components/Home/AffiliatesCards";
 import React from "react";
 
@@ -11,6 +12,7 @@ const AffiliatesPage = () => {
         </h2>
       </div>
       <AffiliatesCards />
+      <CTA />
     </main>
   );
 };

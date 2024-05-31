@@ -105,6 +105,7 @@ export const isGoodPosts = async () => {
     const res = await db.query.posts.findMany({
       where: eq(posts.isGood, true),
       limit: 10,
+      orderBy: [sql`RANDOM()`],
     });
     return res as PostPrompts[];
   } catch (error) {

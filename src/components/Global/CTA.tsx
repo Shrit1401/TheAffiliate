@@ -1,8 +1,10 @@
 import React from "react";
+import Arrow from "../../../public/images/arrow.svg";
+import Image from "next/image";
 
 const CTA = () => {
   return (
-    <div className="hero w-[95%] md:w-[90%] mt-8 border border-white/80 py-8 rounded-lg m-auto">
+    <div className="hero bg-base-300 py-8 rounded-lg">
       <div className="text-center flex-col lg:flex-row-reverse">
         <div>
           <h1 className="heading">SeoLevelup 🚀</h1>
@@ -16,6 +18,7 @@ const CTA = () => {
             className="btn btn-primary"
           >
             Get Started
+            <Image src={Arrow} alt="Arrow" />
           </a>
         </div>
       </div>

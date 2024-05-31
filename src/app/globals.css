@@ -13,7 +13,7 @@
 .heading {
   line-height: 1;
   letter-spacing: -0.4px;
-  @apply px-4 md:text-6xl text-[2.75rem] font-bold;
+  @apply px-4 md:text-6xl text-[2.5rem] font-bold;
 }
 
 h1 {
@@ -21,7 +21,7 @@ h1 {
 }
 
 h2 {
-  @apply md:text-xl text-xl text-base-content font-medium;
+  @apply md:text-xl text-[1.2rem] text-base-content font-medium;
 }
 
 .btn-outline {
