@@ -46,7 +46,7 @@ const Features = () => {
             <p className="py-6 md:text-[1.2rem]">
               Joining our affiliate program is simple and straightforward.
               Submit your details, get your post on the site, and start getting
-              traffic to your website in no time. It's that easy!
+              traffic to your website in no time. It&apos;s that easy!
             </p>
             <a href="/submit" className="btn btn-primary">
               Join Now
