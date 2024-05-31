@@ -1,104 +1,52 @@
-import { cn } from "@/lib/utils";
-import Marquee from "@/components/magicui/marquee";
-import Image from "next/image";
+import React from "react";
 
-const reviews = [
-  {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
-  },
-  {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
-  },
-  {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
-  },
-  {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
-  },
-  {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
-  },
-  {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
-  },
-];
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
-
-const ReviewCard = ({
-  img,
-  name,
-  username,
-  body,
-}: {
-  img: string;
-  name: string;
-  username: string;
-  body: string;
-}) => {
+export const Testimonial1 = () => {
   return (
-    <figure
-      className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-        "border-gray-50/[.1] bg-gray-50/[.10] hover:bg-gray-50/[.15]"
-      )}
-    >
-      <div className="flex flex-row items-center gap-2">
-        <Image
-          className="rounded-full"
-          width="32"
-          height="32"
-          alt=""
-          src={img}
-        />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-white">
-            {name}
+    <section className="relative isolate overflow-hidden px-6 py-8 sm:py-12 md:px-8 bg-base-100">
+      <div className="mx-auto max-w-2xl lg:max-w-4xl">
+        <figure>
+          <blockquote className="text-center font-semibold text-[1.5rem] md:text-3xl leading-9 md:leading-10">
+            "This website is a treasure trove of information! It's like having a
+            personal encyclopedia at your fingertips. I highly recommend it to
+            anyone looking to expand their knowledge or stay informed."
+          </blockquote>
+          <figcaption className="mt-4">
+            <div className="mt-4 flex items-center justify-center space-x-3">
+              <div className="font-medium text-white">Ruru</div>
+              <svg
+                viewBox="0 0 2 2"
+                width={3}
+                height={3}
+                aria-hidden="true"
+                className="fill-white/50"
+              >
+                <circle cx={1} cy={1} r={1} />
+              </svg>
+              <div className="text-white/50 font-bold">Full Stack Web Dev</div>
+            </div>
           </figcaption>
-          <p className="text-xs font-medium text-white/40">{username}</p>
-        </div>
+        </figure>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
-    </figure>
+    </section>
   );
 };
 
-const Testimonial = () => {
+export const Testimonial2 = () => {
   return (
-    <div className="relative flex w-full p-auto md:px-48 flex-col items-center justify-center overflow-hidden rounded-lg bg-background pb-10 md:shadow-xl">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l  from-background"></div>
-    </div>
+    <section className="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:px-8 bg-base-100">
+      <div className="mx-auto max-w-2xl lg:max-w-4xl">
+        <figure>
+          <blockquote className="text-center font-semibold text-[1.5rem]  md:text-3xl leading-9 md:leading-10">
+            "Become a part of the Affiliate.io community today and take your
+            marketing to the next level. "
+          </blockquote>
+          <figcaption className="mt-4">
+            <div className="mt-4 flex items-center justify-center space-x-3">
+              <div className="font-medium text-white">Mohamed Mahmoud</div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
   );
 };
-
-export default Testimonial;

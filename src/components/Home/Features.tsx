@@ -2,7 +2,7 @@ import React from "react";
 import AnimatesPaymentList from "./AnimatesPaymentList";
 import TopAffiliate from "./TopAffiliates";
 import Image from "next/image";
-import Testimonial from "./Testimonial";
+import { Testimonial1, Testimonial2 } from "./Testimonial";
 import feature1 from "../../../public/images/features/feature1.png";
 import feature2 from "../../../public/images/features/feature2.png";
 
@@ -27,7 +27,7 @@ const Features = () => {
           </div>
         </div>
       </section>
-
+      <Testimonial1 />
       <TopAffiliate />
 
       <section className="hero min-h-[50vh] my-8 bg-transparent p-auto md:px-48">
@@ -80,7 +80,7 @@ const Features = () => {
         </div>
       </section>
 
-      <Testimonial />
+      <Testimonial2 />
     </div>
   );
 };
