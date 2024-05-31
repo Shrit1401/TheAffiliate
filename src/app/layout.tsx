@@ -7,23 +7,18 @@ import Footer from "@/components/Global/Footer";
 
 import MetadataImage from "../../public/images/card.png";
 
-export const alt = "About TheAffiliate";
-export const size = {
+const alt = "About TheAffiliate";
+const size = {
   width: "1500",
   height: "700",
 };
 
-export const contentType = "image/png";
-
-export const title =
-  "TheAffiliate - Your Ultimate Affiliate Programs Directory";
-
-export const desc =
-  "Discover and compare the best affiliate programs on TheAffiliate. Upvote your favorites, find expert insights, and boost your affiliate marketing success today!";
+const contentType = "image/png";
 
 export const metadata: Metadata = {
-  title: `${title}`,
-  description: `${desc}`,
+  title: "TheAffiliate - Your Ultimate Affiliate Programs Directory",
+  description:
+    "Discover and compare the best affiliate programs on TheAffiliate. Upvote your favorites, find expert insights, and boost your affiliate marketing success today!",
   icons: {
     icon: "images/icon_dark.svg",
   },
@@ -42,8 +37,8 @@ export default function RootLayout({
         <meta property="og:image:width" content={size.width} />
         <meta property="og:image:height" content={size.height} />
         <meta property="og:image:alt" content={alt} />
-
         <meta name="twitter:card" content="summary_large_image" />
+
         <meta name="twitter:image" content={MetadataImage.src} />
         <meta name="twitter:image:type" content={contentType} />
         <meta name="twitter:image:width" content={size.width} />
