@@ -4,7 +4,9 @@ import { Toaster } from "react-hot-toast";
 
 import Navbar from "@/components/Global/Navbar";
 import Footer from "@/components/Global/Footer";
-import MetadataImage from "../../public/images/card.png";
+
+const MetadataImage =
+  "https://affiliate-jbb6xzkqc-shrit1401s-projects.vercel.app/images/card.png";
 
 export const metadata: Metadata = {
   title: "TheAffiliate.io - Your Ultimate Affiliate Programs Directory",
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
     url: "https://theaffiliate.io",
     images: [
       {
-        url: MetadataImage.src,
+        url: MetadataImage,
         width: 1500,
         height: 750,
         alt: "TheAffiliate.io",
