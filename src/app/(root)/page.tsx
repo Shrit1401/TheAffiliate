@@ -14,7 +14,13 @@ export default function Home() {
         <HoverBorderGradientHome />
         <h1 className="heading text">
           Discover Top Affiliates,
-          <br /> Boost Your Income Instantly
+          <br />
+          <span className="relative inline-block">
+            <span className="absolute bg-neutral-content inset-0 md:-inset-1 -rotate-1" />
+            <span className="relative text-neutral md:text-6xl text-[2.5rem]">
+              Boost Your Income Instantly
+            </span>
+          </span>
         </h1>
         <h2 className="capitalize text-base-content">
           We Help Brands Meet You, and You to Meet Brands

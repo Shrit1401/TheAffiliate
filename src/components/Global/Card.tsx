@@ -2,22 +2,24 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { CardPrompts } from "../../../types";
 import toast from "react-hot-toast";
-import { decrementUpvotes, incrementUpvotes } from "@/lib/posts.actions";
+import { decrementUpvotes, incrementLikes } from "@/lib/posts.actions";
+import LikeSolid from "../../../public/images/like.svg";
+import LikeWhite from "../../../public/images/like_white.svg";
 
 const Card = (card: CardPrompts) => {
-  const [upvoted, setUpvoted] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     const storedUpvote = localStorage.getItem(`upvoted-${card.id}`);
     if (storedUpvote) {
-      setUpvoted(true);
+      setLiked(true);
     }
   }, [card.id]);
 
   const handleUpvote = () => {
-    if (upvoted) {
+    if (liked) {
       localStorage.removeItem(`upvoted-${card.id}`);
-      setUpvoted(false);
+      setLiked(false);
       decrementUpvotes(card.id!);
       toast("Upvote removed", {
         icon: "😭",
@@ -28,8 +30,8 @@ const Card = (card: CardPrompts) => {
       });
     } else {
       localStorage.setItem(`upvoted-${card.id}`, "true");
-      setUpvoted(true);
-      incrementUpvotes(card.id!);
+      setLiked(true);
+      incrementLikes(card.id!);
       toast.success("Upvoted successfully!", {
         style: {
           background: "#333",
@@ -69,17 +71,15 @@ const Card = (card: CardPrompts) => {
           <button
             onClick={handleUpvote}
             className={`btn flex items-center gap-1 ${
-              upvoted ? "btn-primary" : "btn-outline"
+              liked
+                ? "btn-primary"
+                : `
+                border-2 border-[#ef4444] text-[#ef4444] 
+              `
             }`}
           >
-            <Image
-              src="/images/upvote.svg"
-              width={20}
-              height={20}
-              alt="upvote"
-              className={`${upvoted ? "invert" : ""}`}
-            />
-            {card.upvotes + (upvoted ? 1 : 0)}
+            <Image src={LikeSolid} alt="like" />
+            {card.likes + (liked ? 1 : 0)}
           </button>
         </div>
       </div>
@@ -87,10 +87,12 @@ const Card = (card: CardPrompts) => {
         <button className="btn cursor-not-allowed">${card.price} / lead</button>
         <a
           onClick={sampleUrl}
-          href={card.url === "nr" ? "" : `/affiliates/${card.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={card.url === "nr" ? "" : card.url}
           className="btn btn-primary flex items-center gap-2"
         >
-          Learn More
+          Visit
           <Image src="/images/arrow.svg" width={20} height={20} alt="arrow" />
         </a>
       </div>

@@ -1,0 +1,1 @@
+ALTER TABLE "submits" DROP COLUMN IF EXISTS "likes";

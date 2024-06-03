@@ -28,7 +28,7 @@ const Features = () => {
         </div>
       </section>
       <Testimonial1 />
-      <TopAffiliate />
+      {/* <TopAffiliate /> */}
 
       <section className="hero min-h-[50vh] my-8 bg-transparent p-auto md:px-48">
         <div className="hero-content flex-col lg:flex-row">

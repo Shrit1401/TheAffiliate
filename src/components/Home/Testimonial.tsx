@@ -6,10 +6,16 @@ export const Testimonial1 = () => {
       <div className="mx-auto max-w-2xl md:max-w-4xl">
         <figure>
           <blockquote className="text-center font-semibold text-[1.5rem] md:text-3xl leading-9 md:leading-10">
-            &quot;This website is a treasure trove of information! It&apos;s
-            like having a personal encyclopedia at your fingertips. I highly
-            recommend it to anyone looking to expand their knowledge or stay
-            informed.&quot;
+            &quot;
+            <span className="relative inline-block">
+              <span className="absolute bg-primary -rotate-1 inset-0 md:-inset-1" />
+              <span className="relative text-neutral text-[1.5rem] md:text-3xl">
+                This website is a treasure trove of information!
+              </span>
+            </span>
+            It&apos;s like having a personal encyclopedia at your fingertips. I
+            highly recommend it to anyone looking to expand their knowledge or
+            stay informed.&quot;
           </blockquote>
           <figcaption className="mt-4">
             <div className="mt-4 flex items-center justify-center space-x-3">
@@ -40,8 +46,14 @@ export const Testimonial2 = () => {
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
         <figure>
           <blockquote className="text-center font-semibold text-[1.5rem]  md:text-3xl leading-9 md:leading-10">
-            &quot;Become a part of the Affiliate community today and take your
-            marketing to the next level. &quot;
+            &quot;Become a part of the
+            <span className="relative inline-block">
+              <span className="absolute bg-primary rotate-1 inset-0 md:-inset-1" />
+              <span className="relative text-neutral text-[1.5rem] md:text-3xl">
+                Affiliate community
+              </span>
+            </span>
+            today and take your marketing to the next level. &quot;
           </blockquote>
           <figcaption className="mt-4">
             <div className="mt-4 flex items-center justify-center space-x-3">

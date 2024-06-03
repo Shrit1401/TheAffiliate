@@ -9,12 +9,11 @@ import { FaDollarSign } from "react-icons/fa6";
 
 import { handleError } from "@/lib/utils";
 import { uploadImage } from "@/lib/upload";
-import { insertPost } from "@/lib/posts.actions";
-import { PostSchemaPrompts, Categories } from "../../../types";
+import { PostSchemaPrompts } from "../../../types";
 import Card from "../Global/Card";
+import { submitPost } from "@/lib/submits.actions";
 
 const PostForm = () => {
-  const router = useRouter();
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [formData, setFormData] = useState({
     title: "",
@@ -31,10 +30,10 @@ const PostForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<PostSchemaPrompts>({
     defaultValues: {
+      name: "",
+      email: "",
       title: "",
       summary: "",
-      category: "",
-      description: "",
       price: "",
       url: "",
     },
@@ -49,15 +48,19 @@ const PostForm = () => {
 
   const onSubmit: SubmitHandler<PostSchemaPrompts> = async (fields) => {
     try {
+      if (
+        !fields.price ||
+        Number(fields.price) < 0 ||
+        Number(fields.price) > 100
+      )
+        throw new Error("Price must be a positive number");
       if (!imageFile) throw new Error("No image selected");
       const imageUrl = await uploadImage(imageFile, fields.title);
       if (!imageUrl) throw new Error("Image upload failed");
 
       const post = { ...fields, imageUrl };
-      const res = await insertPost(post);
-      toast.success("Post submitted successfully");
-
-      router.push(`/affiliates/${res![0].id}`);
+      const res = await submitPost(post);
+      toast.success("Post submitted successfully, we'll get back to you soon!");
     } catch (error) {
       handleError(error);
     }
@@ -80,6 +83,26 @@ const PostForm = () => {
       <div className="md:w-1/2 md:m-0 mx-10">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg">
           <div className="flex flex-col gap-5 text-white">
+            <input
+              className="input input-bordered"
+              placeholder="Enter Your Name"
+              type="text"
+              {...register("name", { required: "Name is required" })}
+              onChange={handleChange}
+            />
+            {errors.name && (
+              <span className="badge badge-error">{errors.name.message}</span>
+            )}
+            <input
+              className="input input-bordered"
+              placeholder="Enter Your E-Mail"
+              type="email"
+              {...register("email", { required: "Email is required" })}
+              onChange={handleChange}
+            />
+            {errors.name && (
+              <span className="badge badge-error">{errors.email?.message}</span>
+            )}
             <input
               className="input input-bordered"
               placeholder="Enter Title"
@@ -108,48 +131,19 @@ const PostForm = () => {
                 {errors.summary.message}
               </span>
             )}
-            <select
-              className="select select-bordered"
-              {...register("category", { required: "Category is required" })}
-              defaultValue=""
-              onChange={handleChange}
-            >
-              <option value="" disabled>
-                Select Category
-              </option>
-              {Categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-            {errors.category && (
-              <span className="badge badge-error">
-                {errors.category.message}
-              </span>
-            )}
-            <textarea
-              className="textarea textarea-bordered py-2"
-              placeholder="Enter Description"
-              {...register("description", {
-                required: "Description is required",
-              })}
-              onChange={handleChange}
-            />
-            {errors.description && (
-              <span className="badge badge-error">
-                {errors.description.message}
-              </span>
-            )}
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center w-full gap-2">
               <FaDollarSign />
               <input
                 placeholder="Enter Price"
                 type="number"
+                className="w-full"
                 inputMode="numeric"
                 {...register("price", { required: "Price is required" })}
                 onChange={handleChange}
               />
+              <span className="badge badge-neutral w-full py-3 px-0 capitalize m-0">
+                add in percentage only
+              </span>
             </label>
             {errors.price && (
               <span className="badge badge-error">{errors.price.message}</span>
@@ -188,7 +182,7 @@ const PostForm = () => {
           imageUrl={
             imageFile ? URL.createObjectURL(imageFile) : "./images/creator.png"
           }
-          upvotes={69}
+          likes={69}
           price={formData.price || "-"}
           url="nr"
         />

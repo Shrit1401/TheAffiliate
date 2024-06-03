@@ -1,13 +1,10 @@
 "use client";
 import React, { useEffect } from "react";
-import { FaFilter } from "react-icons/fa";
 import Card from "../Global/Card";
-import { Categories, PostPrompts } from "../../../types";
+import { PostPrompts } from "../../../types";
 import { getAllPosts } from "@/lib/posts.actions";
 import { handleError } from "@/lib/utils";
 import ReactPaginate from "react-paginate";
-import toast from "react-hot-toast";
-
 function Items({ currentItems }: { currentItems: PostPrompts[] }) {
   return (
     <>
@@ -19,7 +16,7 @@ function Items({ currentItems }: { currentItems: PostPrompts[] }) {
             title={post.title}
             summary={post.summary}
             imageUrl={post.imageUrl!}
-            upvotes={post.upvotes! || 0}
+            likes={post.likes! || 0}
             price={post.price}
             url={post.url}
           />
@@ -32,9 +29,6 @@ const AffiliatesCards = () => {
   const itemsPerPage = 6;
   const [itemOffset, setItemOffset] = React.useState(0);
 
-  const [selectedCategories, setSelectedCategories] = React.useState<string[]>(
-    []
-  );
   const [search, setSearch] = React.useState("");
 
   const [posts, setPosts] = React.useState<PostPrompts[]>([]);
@@ -53,13 +47,6 @@ const AffiliatesCards = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const posts = await getAllPosts().catch((error) => handleError(error));
-      if (selectedCategories.length > 0) {
-        const filteredPosts = posts!.filter((post) =>
-          selectedCategories.includes(post.category)
-        );
-        setPosts(filteredPosts);
-        return;
-      }
       setPosts(posts as PostPrompts[]);
     };
 
@@ -68,19 +55,13 @@ const AffiliatesCards = () => {
       const filteredPosts = posts.filter((post) =>
         post.title.toLowerCase().includes(search.toLowerCase())
       );
-      if (selectedCategories.length > 0) {
-        const categoryFilteredPosts = filteredPosts.filter((post) =>
-          selectedCategories.includes(post.category)
-        );
-        setPosts(categoryFilteredPosts);
-        return;
-      }
+
       setPosts(filteredPosts);
     };
 
     // fetchPosts();
     search.length > 0 ? searchPost() : fetchPosts();
-  }, [selectedCategories, search, setPosts]);
+  }, [search, setPosts]);
 
   return (
     <div>

@@ -2,7 +2,7 @@
 import {
   getPostById,
   decrementUpvotes,
-  incrementUpvotes,
+  incrementLikes,
 } from "@/lib/posts.actions";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -44,7 +44,7 @@ const SingleData = ({ postid }: any) => {
     } else {
       localStorage.setItem(`upvoted-${postid}`, "true");
       setUpvoted(true);
-      incrementUpvotes(postid as string);
+      incrementLikes(postid as string);
       toast.success("Upvoted successfully!", {
         style: {
           background: "#333",
@@ -67,7 +67,7 @@ const SingleData = ({ postid }: any) => {
     if (!upvoted) {
       localStorage.setItem(`upvoted-${postid}`, "true");
       setUpvoted(true);
-      incrementUpvotes(postid as string);
+      incrementLikes(postid as string);
     }
   };
   return (
@@ -91,7 +91,7 @@ const SingleData = ({ postid }: any) => {
                 alt="upvote"
                 className={`${upvoted ? "invert" : ""}`}
               />
-              {post.upvotes! + (upvoted ? 1 : 0)}
+              {post.likes! + (upvoted ? 1 : 0)}
             </button>
           </div>
           <div className="flex justify-center my-4">

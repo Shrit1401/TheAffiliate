@@ -1,7 +1,7 @@
 "use server";
 import { db } from "@/db/db";
 import { posts } from "@/db/schema";
-import { PostPrompts } from "../../types";
+import { PostPrompts, VotingCardProps } from "../../types";
 import { handleError } from "./utils";
 import { AnyColumn, desc, eq, sql } from "drizzle-orm";
 
@@ -12,26 +12,6 @@ const increment = (column: AnyColumn, value = 1) => {
 const decrement = (column: AnyColumn, value = 1) => {
   return sql`${column} - ${value}`;
 };
-
-export const insertPostSample = async (post: PostPrompts) => {
-  try {
-    await db
-      .insert(posts)
-      .values(post)
-      .then(
-        (result) => {
-          console.log(result);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    console.log("Post inserted");
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 export const insertPost = async (post: PostPrompts) => {
   try {
     const res = await db.insert(posts).values(post).returning().execute();
@@ -56,7 +36,7 @@ export const getAllPosts = async () => {
 export const getHotPosts = async () => {
   try {
     const res = await db.query.posts.findMany({
-      orderBy: [desc(posts.upvotes)],
+      orderBy: [desc(posts.likes)],
       limit: 10,
     });
     return res as PostPrompts[];
@@ -76,11 +56,11 @@ export const getPostById = async (postId: string) => {
   }
 };
 
-export const incrementUpvotes = async (postId: string) => {
+export const incrementLikes = async (postId: string) => {
   try {
     const res = await db
       .update(posts)
-      .set({ upvotes: increment(posts.upvotes) })
+      .set({ likes: increment(posts.likes) })
       .where(eq(posts.id, postId))
       .execute();
   } catch (error) {
@@ -92,7 +72,7 @@ export const decrementUpvotes = async (postId: string) => {
   try {
     const res = await db
       .update(posts)
-      .set({ upvotes: decrement(posts.upvotes) })
+      .set({ likes: decrement(posts.likes) })
       .where(eq(posts.id, postId))
       .execute();
   } catch (error) {
@@ -103,11 +83,22 @@ export const decrementUpvotes = async (postId: string) => {
 export const isGoodPosts = async () => {
   try {
     const res = await db.query.posts.findMany({
-      where: eq(posts.isGood, true),
       limit: 10,
       orderBy: [sql`RANDOM()`],
     });
     return res as PostPrompts[];
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+export const chooseTwoRandomPosts = async () => {
+  try {
+    const res = await db.query.posts.findMany({
+      limit: 2,
+      orderBy: [sql`RANDOM()`],
+    });
+    return res as VotingCardProps[];
   } catch (error) {
     handleError(error);
   }

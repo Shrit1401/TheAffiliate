@@ -1,9 +1,13 @@
+"use client";
 import Image from "next/image";
 import { HiMenuAlt3 } from "react-icons/hi";
 import Arrow from "../../../public/images/arrow.svg";
 import Icon from "../../../public/images/icon_light.svg";
+import { useState } from "react";
+import { setUpLocal } from "../Voting/VotingPage";
 
 const Navbar = () => {
+  const [votes, _] = useState(setUpLocal());
   return (
     <div className="navbar flex justify-around items-center md:px-16 py-8 z-[999] md:mt-2">
       <a className="gap-2 btn btn-ghost" href="/">
@@ -12,7 +16,7 @@ const Navbar = () => {
           <span className="indicator-item indicator-start badge badge-secondary">
             The
           </span>
-          <h1 className="md:text-3xl text-xl text-white">Affiliate</h1>
+          <h1 className="md:text-3xl text-xl text-white">Affiliate.0</h1>
         </div>
       </a>
       <div className="dropdown dropdown-end">
@@ -36,10 +40,21 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="/submit" className="btn btn-primary">
-              Submit Now
+            <button
+              onClick={() => {
+                const modal = document.getElementById(
+                  "votingModal"
+                ) as HTMLDialogElement;
+                if (modal) {
+                  modal.showModal();
+                }
+              }}
+              className="btn btn-primary"
+            >
+              Vote Now
+              <div className="badge">{votes} left</div>
               <Image src={Arrow} className="pb-1" alt="arrow" />
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -50,10 +65,21 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          <a href="/submit" className="btn btn-primary">
-            Submit Now
+          <button
+            onClick={() => {
+              const modal = document.getElementById(
+                "votingModal"
+              ) as HTMLDialogElement;
+              if (modal) {
+                modal.showModal();
+              }
+            }}
+            className="btn btn-primary"
+          >
+            Vote Now
+            <div className="badge">{votes} left</div>
             <Image src={Arrow} className="pb-1" alt="arrow" />
-          </a>
+          </button>
         </li>
       </ul>
     </div>

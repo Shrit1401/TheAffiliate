@@ -29,6 +29,27 @@
       "when": 1716957231778,
       "tag": "0003_ambiguous_leech",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1717361192973,
+      "tag": "0004_grey_the_liberteens",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1717361439416,
+      "tag": "0005_lying_agent_zero",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1717392724972,
+      "tag": "0006_supreme_magik",
+      "breakpoints": true
     }
   ]
 }
