@@ -1,13 +1,18 @@
 "use client";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { HiMenuAlt3 } from "react-icons/hi";
 import Arrow from "../../../public/images/arrow.svg";
 import Icon from "../../../public/images/icon_light.svg";
-import { useState } from "react";
 import { setUpLocal } from "../Voting/VotingPage";
 
 const Navbar = () => {
-  const [votes, _] = useState(setUpLocal());
+  const [votes, setVotes] = useState<string | null>(null);
+
+  useEffect(() => {
+    setVotes(setUpLocal());
+  }, []);
+
   return (
     <div className="navbar flex justify-around items-center md:px-16 py-8 z-[999] md:mt-2">
       <a className="gap-2 btn btn-ghost" href="/">
