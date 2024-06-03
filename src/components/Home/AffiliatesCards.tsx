@@ -102,7 +102,7 @@ const AffiliatesCards = () => {
             breakLabel="..."
             nextLabel=">"
             onPageChange={handlePageClick}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={10}
             pageCount={pageCount}
             previousLabel="<"
             renderOnZeroPageCount={null}

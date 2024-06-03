@@ -183,7 +183,7 @@ const PostForm = () => {
             imageFile ? URL.createObjectURL(imageFile) : "./images/creator.png"
           }
           likes={69}
-          price={formData.price || "-"}
+          price={formData.price + "%" || "-"}
           url="nr"
         />
       </div>

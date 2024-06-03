@@ -28,29 +28,36 @@ const Features = () => {
         </div>
       </section>
       <Testimonial1 />
-      {/* <TopAffiliate /> */}
 
       <section className="hero min-h-[50vh] my-8 bg-transparent p-auto md:px-48">
-        <div className="hero-content flex-col lg:flex-row">
+        <div className="flex items-center flex-col justify-between gap-5 lg:flex-row">
           <Image
-            src={feature1}
-            alt="Submit with Ease"
+            src={feature2}
+            alt="Vote Now"
             width={500}
             height={500}
             className="rounded-lg object-cover border-[3px] border-dotted border-white/5 "
           />
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold">
-              Submit with Ease!
-            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold">Vote Now</h1>
             <p className="py-6 md:text-[1.2rem]">
-              Joining our affiliate program is simple and straightforward.
-              Submit your details, get your post on the site, and start getting
-              traffic to your website in no time. It&apos;s that easy!
+              Vote for your favorite affiliate programs and help them reach the
+              top of our leaderboard. Your votes will help others discover the
+              best programs and earn more through our platform.
             </p>
-            <a href="/submit" className="btn btn-primary">
-              Join Now
-            </a>
+            <button
+              onClick={() => {
+                const modal = document.getElementById(
+                  "votingModal"
+                ) as HTMLDialogElement;
+                if (modal) {
+                  modal.showModal();
+                }
+              }}
+              className="btn btn-primary"
+            >
+              Vote Now
+            </button>
           </div>
         </div>
       </section>
@@ -58,7 +65,7 @@ const Features = () => {
       <section className="hero bg-transparent p-auto md:px-48">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
-            src={feature2}
+            src={feature1}
             alt="Top Affiliates Onboard"
             width={500}
             height={500}

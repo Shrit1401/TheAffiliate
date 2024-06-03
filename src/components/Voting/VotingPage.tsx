@@ -90,12 +90,14 @@ const VotingPage = () => {
               onClick={() => handleVote(votingData[0].id!)}
               title={votingData[0].title}
               summary={votingData[0].summary}
+              link={votingData[0].link}
               price={votingData[0].price}
             />
             <div className="divider">OR</div>
             <VotingCard
               onClick={() => handleVote(votingData[1].id!)}
               title={votingData[1].title}
+              link={votingData[1].link}
               summary={votingData[1].summary}
               price={votingData[1].price}
             />

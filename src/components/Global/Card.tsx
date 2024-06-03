@@ -71,7 +71,7 @@ const Card = (card: CardPrompts) => {
             {card.summary}
           </p>
         </div>
-        <div className="tooltip tooltip-left" data-tip="Upvote This Program">
+        <div className="tooltip tooltip-left" data-tip="Like This Program">
           <button
             onClick={handleUpvote}
             className={`btn flex items-center gap-1 ${

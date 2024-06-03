@@ -21,7 +21,7 @@ const Navbar = () => {
           <span className="indicator-item indicator-start badge badge-secondary">
             The
           </span>
-          <h1 className="md:text-3xl text-xl text-white">Affiliate.0</h1>
+          <h1 className="md:text-3xl text-xl text-white">Affiliate.io</h1>
         </div>
       </a>
       <div className="dropdown dropdown-end">
