@@ -55,8 +55,12 @@ const Card = (card: CardPrompts) => {
 
   return (
     <div className="bg-[#1A1A1A] flex flex-col gap-6 rounded-md pb-4 overflow-hidden">
-      <img
+      <Image
+        width={300}
+        height={200}
+        unoptimized
         src={card.imageUrl}
+        quality={55}
         className="rounded-t-md bg-cover h-[15rem] object-cover w-full"
         alt={card.title}
       />
