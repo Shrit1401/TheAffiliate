@@ -30,7 +30,7 @@ const Features = () => {
       <Testimonial1 />
 
       <section className="hero min-h-[50vh] my-8 bg-transparent p-auto md:px-48">
-        <div className="flex items-center flex-col justify-between gap-5 lg:flex-row">
+        <div className="flex items-center px-6 md:px2 flex-col justify-between gap-5 lg:flex-row">
           <Image
             src={feature2}
             alt="Vote Now"

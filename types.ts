@@ -14,7 +14,7 @@ export type VotingCardProps = {
   title: string;
   summary: string;
   price: string;
-  link: string;
+  url: string;
 };
 
 export type SubmitPrompts = {
