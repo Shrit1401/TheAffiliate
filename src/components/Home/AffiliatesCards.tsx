@@ -26,7 +26,7 @@ function Items({ currentItems }: { currentItems: PostPrompts[] }) {
 }
 
 const AffiliatesCards = () => {
-  const itemsPerPage = 6;
+  const itemsPerPage = 9;
   const [itemOffset, setItemOffset] = React.useState(0);
 
   const [search, setSearch] = React.useState("");

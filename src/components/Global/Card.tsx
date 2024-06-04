@@ -4,7 +4,6 @@ import { CardPrompts } from "../../../types";
 import toast from "react-hot-toast";
 import { decrementUpvotes, incrementLikes } from "@/lib/posts.actions";
 import LikeSolid from "../../../public/images/like.svg";
-import LikeWhite from "../../../public/images/like_white.svg";
 
 const Card = (card: CardPrompts) => {
   const [liked, setLiked] = useState(false);
@@ -55,14 +54,12 @@ const Card = (card: CardPrompts) => {
 
   return (
     <div className="bg-[#1A1A1A] flex flex-col gap-6 rounded-md pb-4 overflow-hidden">
-      <Image
-        width={300}
-        height={200}
-        unoptimized
+      <img
         src={card.imageUrl}
-        quality={55}
-        className="rounded-t-md bg-cover h-[15rem] object-cover w-full"
-        alt={card.title}
+        sizes="(max-width: 300px) 300px, (max-width: 200px) 300px, 200px"
+        loading="lazy"
+        // decrease the quality of the image to 50%
+        alt="Description of the image"
       />
       <div className="px-4 flex justify-between items-center">
         <div className="flex flex-col w-3/4 max-w-full">
