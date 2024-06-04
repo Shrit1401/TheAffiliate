@@ -52,11 +52,8 @@ export default function RootLayout({
           type="image/x-icon"
           sizes="48x48"
         />
-        <script
-          defer
-          data-domain="the-affiliate.vercel.app"
-          src="https://plausible.io/js/script.js"
-        ></script>
+        <script defer data-domain="theaffiliate.io" src="https://plausible.io/js/script.js"></script>
+
       </head>
       <body className="flex h-full flex-col">
         <a
