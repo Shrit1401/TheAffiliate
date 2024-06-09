@@ -15,7 +15,7 @@ const Footer = () => {
       </aside>
       <nav>
         <h6 className="footer-title">Pages</h6>
-        <a href="/home" className="link link-hover">
+        <a href="/" className="link link-hover">
           Home
         </a>
         <a href="/affiliates" className="link link-hover">

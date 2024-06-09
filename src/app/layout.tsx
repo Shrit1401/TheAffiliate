@@ -20,7 +20,7 @@ const contentType = "image/png";
 export const metadata: Metadata = {
   title: "TheAffiliate.io - Your Ultimate Affiliate Programs Directory",
   description:
-    "Discover and compare the best affiliate programs on TheAffiliate.io Upvote your favorites, find expert insights, and boost your affiliate marketing success today!",
+    "Discover and compare the best affiliate programs on TheAffiliate.io Like your favorites, find expert insights, and boost your affiliate marketing success today!",
   icons: {
     icon: "images/icon_dark.svg",
   },
@@ -40,20 +40,34 @@ export default function RootLayout({
         <meta property="og:image:height" content={size.height} />
         <meta property="og:image:alt" content={alt} />
         <meta name="twitter:card" content="summary_large_image" />
-
+        <meta
+          name="twitter:title"
+          content="TheAffiliate.io - Your Ultimate Affiliate Program Directory"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover and compare the best affiliate programs on TheAffiliate.io Like your favorites, find expert insights, and boost your affiliate marketing success today!"
+        />
         <meta name="twitter:image" content={MetadataImage.src} />
-        <meta name="twitter:image:type" content={contentType} />
-        <meta name="twitter:image:width" content={size.width} />
-        <meta name="twitter:image:height" content={size.height} />
-        <meta property="twitter:image:alt" content={alt} />
+        <meta name="twitter:image:alt" content={alt} />
+        <link
+          rel="canonical"
+          href="
+        https://theaffiliate.io/
+        "
+        />
+
         <link
           rel="icon"
           href="images/favicon.ico"
           type="image/x-icon"
           sizes="48x48"
         />
-        <script defer data-domain="theaffiliate.io" src="https://plausible.io/js/script.js"></script>
-
+        <script
+          defer
+          data-domain="theaffiliate.io"
+          src="https://plausible.io/js/script.js"
+        ></script>
       </head>
       <body className="flex h-full flex-col">
         <a

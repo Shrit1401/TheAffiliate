@@ -15,7 +15,7 @@ const CTA = () => {
             href="https://seolevelup.com/"
             target="_blank"
             rel="noreferrer"
-            className="btn btn-primary"
+            className="btn btn-primary plausible-event-name=SeoLevelUp+Button+Clicked"
           >
             Get Started
             <Image src={Arrow} alt="Arrow" />

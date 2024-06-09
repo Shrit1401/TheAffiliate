@@ -57,8 +57,6 @@ const Card = (card: CardPrompts) => {
       <img
         src={card.imageUrl}
         sizes="(max-width: 300px) 300px, (max-width: 200px) 300px, 200px"
-        loading="lazy"
-        // decrease the quality of the image to 50%
         alt="Description of the image"
       />
       <div className="px-4 flex justify-between items-center">
