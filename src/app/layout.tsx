@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="z-10">
       <head>
+        <meta property="og:url" content="https://www.theaffiliate.io/" />
         <meta property="og:image" content={MetadataImage.src} />
         <meta property="og:image:type" content={contentType} />
         <meta property="og:image:width" content={size.width} />
@@ -48,14 +49,13 @@ export default function RootLayout({
           name="twitter:description"
           content="Discover and compare the best affiliate programs on TheAffiliate.io Like your favorites, find expert insights, and boost your affiliate marketing success today!"
         />
-        <meta name="twitter:image" content={MetadataImage.src} />
-        <meta name="twitter:image:alt" content={alt} />
-        <link
-          rel="canonical"
-          href="
-        https://theaffiliate.io/
-        "
+        <meta property="twitter:url" content="https://www.theaffiliate.io/" />
+        <meta
+          name="twitter:image"
+          content="https://www.theaffiliate.io/images/card.png"
         />
+        <meta name="twitter:image:alt" content={alt} />
+        <link rel="canonical" href="https://theaffiliate.io/" />
 
         <link
           rel="icon"
