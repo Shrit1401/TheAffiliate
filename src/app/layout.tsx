@@ -66,7 +66,7 @@ export default function RootLayout({
         <script
           defer
           data-domain="theaffiliate.io"
-          src="https://plausible.io/js/script.js"
+          src="https://plausible.io/js/script.tagged-events.js"
         ></script>
       </head>
       <body className="flex h-full flex-col">
