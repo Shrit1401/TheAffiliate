@@ -13,24 +13,32 @@ export default function Home() {
       <div className="text-center mt-8 md:mt-0 md:h-[50vh] flex items-center flex-col justify-center gap-4 md:gap-5">
         <HoverBorderGradientHome />
         <h1 className="heading text">
-          Discover Top Affiliates,
+          Discover Affiliates Directory,
           <br />
-          <span className="relative inline-block">
-            <span className="absolute bg-neutral-content inset-0 md:-inset-1 -rotate-1" />
-            <span className="relative text-neutral md:text-6xl text-[2.5rem]">
-              Boost Your Income Instantly
-            </span>
+          <span className="md:text-6xl text-[2.5rem] relative dotted-underline">
+            Boost Your Income Instantly
           </span>
         </h1>
-        <h2 className="capitalize text-base-content">
-          We Help Brands Meet You, and You to Meet Brands
+        <h2 className="capitalize text-base-content text-lg">
+          Find the best affiliate programs and networks to join and make money
+          online.
         </h2>
         <div className="flex gap-5">
-          <a href="/affiliates" className="btn btn-primary">
-            Get Started
-          </a>
-          <a href="/submit" className="btn btn-outline border-white">
-            Submit Your Business
+          <button
+            onClick={() => {
+              const modal = document.getElementById(
+                "votingModal"
+              ) as HTMLDialogElement;
+              if (modal) {
+                modal.showModal();
+              }
+            }}
+            className="btn btn-primary"
+          >
+            Vote Now
+          </button>
+          <a href="/affiliates" className="btn btn-outline border-white">
+            View All Affiliates
           </a>
         </div>
       </div>

@@ -112,3 +112,13 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: white;
   color: #1e1e1e;
 }
+
+.dotted-underline::after {
+  content: "";
+  display: block;
+  width: 100%;
+  border-bottom: 4px dotted white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

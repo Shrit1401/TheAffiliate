@@ -33,6 +33,18 @@ export const getAllPosts = async () => {
   }
 };
 
+export const get9RandomPosts = async () => {
+  try {
+    const res = await db.query.posts.findMany({
+      limit: 9,
+      orderBy: [sql`RANDOM()`],
+    });
+    return res as PostPrompts[];
+  } catch (error) {
+    handleError(error);
+  }
+};
+
 export const getHotPosts = async () => {
   try {
     const res = await db.query.posts.findMany({

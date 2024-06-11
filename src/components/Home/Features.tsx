@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Testimonial1, Testimonial2 } from "./Testimonial";
 import feature1 from "../../../public/images/features/feature1.png";
 import feature2 from "../../../public/images/features/feature2.png";
+import LandingCards from "./LandingCards";
 
 const Features = () => {
   return (
@@ -27,6 +28,8 @@ const Features = () => {
           </div>
         </div>
       </section>
+      <LandingCards />
+
       <Testimonial1 />
 
       <section className="hero min-h-[50vh] my-8 bg-transparent p-auto md:px-48">

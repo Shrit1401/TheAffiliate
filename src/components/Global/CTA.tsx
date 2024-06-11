@@ -7,7 +7,12 @@ const CTA = () => {
     <div className="hero bg-base-300 py-8 rounded-lg">
       <div className="text-center flex-col lg:flex-row-reverse">
         <div>
-          <h1 className="heading">SeoLevelup 🚀</h1>
+          <h1 className="relative heading">
+            SeoLevelup 🚀
+            <div className=" badge badge-primary animate-pulse absolute top-1 right-1 transform -translate-x-1/2 -translate-y-1/2">
+              Sponsers
+            </div>
+          </h1>
           <p className="py-6">
             🚀 Galactic Designs, Stellar Rankings: Your Digital Universe Awaits.
           </p>

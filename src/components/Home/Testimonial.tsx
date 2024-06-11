@@ -7,11 +7,8 @@ export const Testimonial1 = () => {
         <figure>
           <blockquote className="text-center font-semibold text-[1.5rem] md:text-3xl leading-9 md:leading-10">
             &quot;
-            <span className="relative inline-block">
-              <span className="absolute bg-primary -rotate-1 inset-0 md:-inset-1" />
-              <span className="relative text-neutral text-[1.5rem] md:text-3xl">
-                This website is a treasure trove of information!
-              </span>
+            <span className="relative dotted-underline text-[1.5rem] mx-2 md:text-3xl">
+              This website is a treasure trove of information!
             </span>
             It&apos;s like having a personal encyclopedia at your fingertips. I
             highly recommend it to anyone looking to expand their knowledge or
@@ -47,11 +44,8 @@ export const Testimonial2 = () => {
         <figure>
           <blockquote className="text-center font-semibold text-[1.5rem]  md:text-3xl leading-9 md:leading-10">
             &quot;Become a part of the
-            <span className="relative inline-block">
-              <span className="absolute bg-primary rotate-1 inset-0 md:-inset-1" />
-              <span className="relative text-neutral text-[1.5rem] md:text-3xl">
-                Affiliate community
-              </span>
+            <span className="relative dotted-underline mx-2 text-[1.5rem] md:text-3xl">
+              Affiliate community
             </span>
             today and take your marketing to the next level. &quot;
           </blockquote>
