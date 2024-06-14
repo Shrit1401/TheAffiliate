@@ -8,16 +8,16 @@ const CTA = () => {
       <div className="text-center flex-col lg:flex-row-reverse">
         <div>
           <h1 className="relative heading">
-            SeoLevelup 🚀
+            Product Hunt 🚀
             <div className=" badge badge-primary animate-pulse absolute top-1 right-1 transform -translate-x-1/2 -translate-y-1/2">
-              Sponsers
+              Upvote
             </div>
           </h1>
           <p className="py-6">
-            🚀 Galactic Designs, Stellar Rankings: Your Digital Universe Awaits.
+            If you like what we are doing, please upvote us on Product Hunt.
           </p>
           <a
-            href="https://seolevelup.com/"
+            href="https://www.producthunt.com/products/the-affiliate"
             target="_blank"
             rel="noreferrer"
             className="btn btn-primary plausible-event-name=SeoLevelUp+Button+Clicked"

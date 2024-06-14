@@ -25,11 +25,7 @@ const Navbar = () => {
         </div>
       </a>
       <div className="dropdown dropdown-end">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-ghost md:hidden lg:hidden"
-        >
+        <div tabIndex={0} role="button" className="btn btn-ghost sm:hidden">
           <HiMenuAlt3 size={32} />
         </div>
         <ul

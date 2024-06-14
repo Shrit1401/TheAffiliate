@@ -70,23 +70,25 @@ export default function RootLayout({
         ></script>
       </head>
       <body className="flex h-full flex-col">
-        <a
-          href="https://x.com/shrit1401"
-          target="_blank"
-          className="bg-primary font-bold text-black fixed bottom-0 right-0 z-50
+        <div
+          className="font-bold text-black fixed bottom-0 right-0 z-50
           px-[0.4rem] py-[.4rem] text-center rounded-t-lg shadow-lg flex items-center gap-2 justify-center duration-200 group"
         >
-          By <p className="underline text-black">Shrit1401</p>
-          <Image
-            src={"https://i.postimg.cc/sXWGRwty/image.png"}
-            width={25}
-            height={25}
-            className="rounded-full
-            group-hover:-rotate-12 transition-transform duration-500 ease-in-out
-            "
-            alt="TheAffiliate.io"
-          />
-        </a>
+          <a
+            href="https://www.producthunt.com/posts/the-affiliate?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-the&#0045;affiliate"
+            target="_blank"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=463328&theme=dark"
+              alt="The&#0032;Affiliate - Get&#0032;Our&#0032;Affiliates&#0032;Directory&#0044;&#0032;Boost&#0032;Your&#0032;Income&#0032;Instantly | Product Hunt"
+              // style="width: 250px; height: 54px;"
+              style={{ width: "250px", height: "54px" }}
+              width="250"
+              height="54"
+            />
+          </a>
+        </div>
+
         <Toaster />
         <VotingPage />
         <Navbar />
