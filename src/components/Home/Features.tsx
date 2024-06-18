@@ -28,6 +28,15 @@ const Features = () => {
           </div>
         </div>
       </section>
+
+      <iframe
+        width="746"
+        height="426"
+        className="mx-auto mb-8 rounded-lg border border-solid border-white/20 shadow-lg"
+        src="https://www.youtube.com/embed/XMsJzQvHujU?si=EumXiwKdDG-SnOJJ"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      />
       <LandingCards />
 
       <Testimonial1 />
