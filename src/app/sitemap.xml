@@ -17,4 +17,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.theaffiliate.io/programs/high-ticket</loc>
+    <lastmod>2024-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theaffiliate.io/programs/home-decor</loc>
+    <lastmod>2024-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theaffiliate.io/programs/moms</loc>
+    <lastmod>2024-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theaffiliate.io/programs/online-tools</loc>
+    <lastmod>2024-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theaffiliate.io/programs/graphics-and-media</loc>
+    <lastmod>2024-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theaffiliate.io/programs/tech-and-software</loc>
+    <lastmod>2024-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
